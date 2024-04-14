@@ -1,0 +1,13 @@
+#!{{ lookPath "fish" }}
+
+echo -e "\033[0;32m>>>>> Begin Installing Fisher & Fisher plugins <<<<<\033[0m"
+
+type fisher &>/dev/null || curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+fisher install jorgebucaran/autopair.fish
+fisher install shoriminimoe/fish-extract
+fisher install patrickf3139/fzf.fish
+fisher install meaningful-ooo/sponge
+fisher install gazorby/fish-chezmoi
+fisher install gazorby/fish-abbreviation-tips
+fisher install kidonng/zoxide.fish

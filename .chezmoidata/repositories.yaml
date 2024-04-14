@@ -1,0 +1,15 @@
+repositories:
+  - user: auricom
+    repo: home-ops
+  - user: auricom
+    repo: containers
+  - user: auricom
+    repo: ublue-custom
+  - user: auricom
+    repo: bluefin-cli
+  - user: ngnodehq
+    repo: console
+  - user: ngnodehq
+    repo: containers
+  - user: ngnodehq
+    repo: landing-page

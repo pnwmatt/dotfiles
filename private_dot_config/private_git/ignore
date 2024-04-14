@@ -1,0 +1,19 @@
+# Swap and backup files
+*~
+~.swp
+
+# Trash
+.DS_Stpre
+Thumbs.db
+
+# Binaries
+*.iso
+
+# Temp
+.temp*
+.ignore/
+.logs/
+.task/
+
+# SOPS
+.decrypted~*

@@ -1,0 +1,22 @@
+{{- if contains "bluefin-cli" .chezmoi.hostname -}}
+#!/usr/bin/env bash
+
+echo -e "\033[0;32m>>>>> Begin Installing Brew & flatpack packages <<<<<\033[0m"
+
+brew update
+
+{{ range .packages.bluefin.taps -}}
+brew tap {{ . }}
+{{ end -}}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.bluefin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+EOF
+
+flatpak install -y --system \
+{{ range .packages.bluefin.flatpaks -}}
+{{ . }} \
+{{ end -}}
+
+{{ end -}}

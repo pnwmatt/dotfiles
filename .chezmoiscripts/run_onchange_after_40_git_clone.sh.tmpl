@@ -1,0 +1,31 @@
+{{- if .homelab -}}
+#!/usr/bin/env bash
+
+base_dir="{{ .chezmoi.homeDir }}/repositories"
+
+clone_repo() {
+    local user="$1"
+    local repo="$2"
+    local repo_url="git@github.com:${user}/${repo}.git"
+    local full_path="${base_dir}/${user}/${repo}"
+
+    mkdir -p "${base_dir}/${user}"
+
+    # Clone the repo if it does not already exist
+    if [ ! -d "${full_path}" ]; then
+        echo "Cloning ${repo_url} into ${full_path}"
+        git clone "${repo_url}" "${full_path}"
+    else
+        echo "Repository already exists: ${full_path}"
+    fi
+}
+
+{{ range .repositories -}}
+clone_repo "{{ .user }}" "{{ .repo }}"
+{{ end -}}
+
+if [ ! -L "{{ .chezmoi.homeDir }}/repositories/auricom/dotfiles" ]; then
+    echo "Creating symbolic link to chezmoi directory."
+    ln -s "{{ .chezmoi.homeDir }}/.local/share/chezmoi" "{{ .chezmoi.homeDir }}/repositories/auricom/dotfiles"
+fi
+{{- end -}}

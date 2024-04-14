@@ -1,0 +1,41 @@
+packages:
+  bluefin:
+    taps:
+      - fluxcd/tap
+      - siderolabs/tap
+    brews:
+      - cocogitto
+      - duf
+      - dust
+      - dysk
+      - thefuck
+      - yt-dlp
+      # home-ops
+      - age
+      - kubectl
+      - kubectx
+      - krew
+      - kustomize
+      - fluxcd/tap/flux
+      - siderolabs/tap/talosctl
+      - sops
+      - talhelper
+    flatpaks:
+      # apps
+      - com.brave.Browser
+      - com.calibre_ebook.calibre
+      - com.github.PintaProject.Pinta
+      - com.logseq.Logseq
+      - com.slack.Slack
+      - dev.k8slens.OpenLens
+      - dev.vencord.Vesktop
+      - io.github.quodlibet.QuodLibet
+      - io.gitlab.librewolf-community
+      - io.kopia.KopiaUI
+      - net.cozic.joplin_desktop
+      - org.musicbrainz.Picard
+      # games
+      - org.freedesktop.Platform.VulkanLayer.gamescope//23.08
+      - org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
+      - com.github.Matoking.protontricks
+      - com.valvesoftware.Steam

@@ -1,0 +1,11 @@
+.editorconfig
+install.sh
+LICENSE
+README.md
+{{- if not .homelab }}
+.config/k9s/
+.config/sops/
+.kube/config
+.talos/config
+.mc/config
+{{- end }}

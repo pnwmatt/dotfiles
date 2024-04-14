@@ -1,0 +1,8 @@
+#!{{ lookPath "fish" }}
+
+echo -e "\033[0;32m>>>>> Begin Creating Bat Cache <<<<<\033[0m"
+
+
+if type -q bat
+    bat cache --build
+end

@@ -1,0 +1,58 @@
+# bat catppuccin themes
+[".config/bat/themes/Catppuccin Latte.tmTheme"]
+    type = "file"
+    url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme"
+    refreshPeriod = "168h"
+[".config/bat/themes/Catppuccin Frappe.tmTheme"]
+    type = "file"
+    url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme"
+    refreshPeriod = "168h"
+[".config/bat/themes/Catppuccin Macchiato.tmTheme"]
+    type = "file"
+    url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme"
+    refreshPeriod = "168h"
+[".config/bat/themes/Catppuccin Mocha.tmTheme"]
+    type = "file"
+    url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme"
+    refreshPeriod = "168h"
+
+# Bibata cursors
+[".local/share/icons"]
+    type = "archive"
+    # url = "https://github.com/ful1e5/Bibata_Cursor/releases/latest/download/Bibata-Modern-Classic.tar.xz"
+    url = "https://github.com/stanio/Bibata_Cursor/releases/download/v2.0.6-stanio-6/Bibata-Classic-Linux-v2.0.6-stanio-6.tar.xz"
+    exact = true
+    include = ["Bibata-Modern-Classic/**"]
+
+# btop catppuccin themes
+[".config/btop/themes/catppuccin_latte.theme"]
+    type = "file"
+    url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_latte.theme"
+    refreshPeriod = "168h"
+[".config/btop/themes/catppuccin_frappe.theme"]
+    type = "file"
+    url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_frappe.theme"
+    refreshPeriod = "168h"
+[".config/btop/themes/catppuccin_macchiato.theme"]
+    type = "file"
+    url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_macchiato.theme"
+    refreshPeriod = "168h"
+[".config/btop/themes/catppuccin_mocha.theme"]
+    type = "file"
+    url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_mocha.theme"
+    refreshPeriod = "168h"
+
+# # GTK Catppuccin theme
+# [".themes"]
+#     type = "archive"
+#     url = "https://github.com/catppuccin/gtk/releases/latest/download/Catppuccin-Mocha-Standard-Blue-Dark.zip"
+#     exact = true
+#     refreshPeriod = "168h"
+
+# k9s Catppuccin themes
+[".config/k9s/skins"]
+    type = "archive"
+    url = "https://github.com/catppuccin/k9s/archive/main.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"

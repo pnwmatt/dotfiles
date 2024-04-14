@@ -1,0 +1,127 @@
+# Makes it a bit more readable
+[blame]
+    coloring = "repeatedLines"
+    markIgnoredLines = true
+    markUnblamables = true
+
+[branch]
+    # pull --rebase` as a default
+    autosetubrebase = "always"
+
+# Shiny colors
+[color]
+    branch = "auto"
+    diff = "auto"
+    interactive = "auto"
+    status = "auto"
+    ui = "auto"
+
+# Pretty much the usual diff colors
+[color "diff"]
+    commit = "yellow"
+    frag = "cyan"
+    meta = "yellow"
+    new = "green"
+    old = "red"
+    whitespace = "red reverse"
+
+[commit]
+    gpgSign = true
+    # Show my changes when writing the message
+    verbose = true
+
+[core]
+    editor = distrobox-host-exec code --wait --reuse-window
+
+[delta]
+    features = "diff-highlight decorations"
+
+# Personal preference for easier reading
+[delta "decorations"]
+    commit-style = "raw"
+    keep-plus-minus-markers = true
+    paging = "always"
+
+# Less jarring style for `diff-highlight` emulation
+[delta "diff-highlight"]
+    minus-emph-style = "bold red 52"
+    minus-non-emph-style = "red"
+    minus-style = "red"
+    plus-emph-style = "bold green 22"
+    plus-non-emph-style = "green"
+    plus-style = "green"
+    whitespace-error-style = "reverse red"
+
+[diff]
+    # Usually leads to better results
+    algorithm = "patience"
+    # Use better, descriptive initials (c, i, w) instead of a/b.
+    mnemonicPrefix = true
+    # Display submodule-related information (commit listings)
+    submodule = "log"
+    # When using --word-diff, assume --word-diff-regex=.
+    wordRegex = "."
+
+[fetch]
+    prune = true
+    pruneTags = true
+
+[filter "lfs"]
+    clean = "git-lfs clean -- %f"
+    process = "git-lfs filter-process"
+    required = true
+    smudge = "git-lfs smudge -- %f"
+
+[gpg]
+    format = "ssh"
+
+# Local configuration, not-versioned
+[include]
+    path = "config.local"
+
+[init]
+    defaultBranch = "main"
+
+[merge]
+    conflictStyle = "zdiff3"
+
+[mergetool]
+    # Clean up backup files created by merge tools on tool exit
+    keepBackup = false
+    # Clean up temp files created by merge tools on tool exit
+    keepTemporaries = false
+    # Auto-accept file prompts when launching merge tools
+    prompt = false
+    # Put the temp files in a dedicated dir anyway
+    writeToTemp = true
+
+[pull]
+    # Avoid useless merge commits
+    rebase = "merges"
+
+[push]
+    autoSetupRemote = true
+    default = "upstream"
+    followTags = true
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+
+[status]
+    # Display submodule rev change summaries in status
+    submoduleSummary = true
+
+[tag]
+    sort = "version:refname"
+
+[url "git@github.com:"]
+    insteadOf = "https://github.com/"
+
+[url "git@gitlab.com:"]
+    insteadOf = "https://gitlab.com/"
+
+[user]
+    email = "27022259+auricom@users.noreply.github.com"
+    name = "auricom"
+    signingkey = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519"

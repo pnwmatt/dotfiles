@@ -1,0 +1,11 @@
+{{- if contains "bluefin-cli" .chezmoi.hostname -}}
+#!/usr/bin/env bash
+
+echo -e "\033[0;32m>>>>> Reload systemctl for quadlets <<<<<\033[0m"
+
+# This script will run whenever there's an update in .config/containers/systemd/*
+# bluefin-cli hash: {{ include "private_dot_config/private_containers/systemd/bluefin-cli.container.tmpl" | sha256sum }}
+# resilio-sync hash: {{ include "private_dot_config/private_containers/systemd/resilio-sync.container.tmpl" | sha256sum }}
+
+distrobox-host-exec systemctl --user daemon-reload
+{{- end -}}

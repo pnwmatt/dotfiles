@@ -1,0 +1,45 @@
+{{- /* Checks if running interactively */ -}}
+{{- $interactive := stdinIsATTY -}}
+
+{{- /* Template file for chezmoi config file */ -}}
+{{- $gnome := false -}}{{/* true if this machine is using gnome */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $homelab := false -}}{{/* true if this machine is used for homelab work */}}
+{{- $agekey := false -}}{{/* true if this machine has agekey to decrypt secret */}}
+
+{{- if hasKey . "gnome" -}}
+{{-   $gnome = .gnome -}}
+{{- else if $interactive -}}
+{{-   $gnome = promptBool "gnome" -}}
+{{- end -}}
+{{- if hasKey . "headless" -}}
+{{-   $headless = .headless -}}
+{{- else if $interactive -}}
+{{-   $headless = promptBool "headless" -}}
+{{- end -}}
+{{- if hasKey . "homelab" -}}
+{{-   $homelab = .homelab -}}
+{{- else if $interactive -}}
+{{-   $homelab = promptBool "homelab" -}}
+{{- end -}}
+{{- if hasKey . "agekey" -}}
+{{-   $agekey = .agekey -}}
+{{- else if $interactive -}}
+{{-   $agekey = promptBool "agekey" -}}
+{{- end -}}
+
+{{- if $interactive -}}
+{{-   writeToStdout "💡 Tip: you can re-enter your data with `chezmoi init --data=false`.\n" -}}
+{{- end -}}
+
+[data]
+  homelab = {{ $homelab }}
+  gnome = {{ $gnome }}
+  agekey = {{ $agekey }}
+
+encryption = "age"
+{{- if $agekey }}
+[age]
+  identity = "{{ .chezmoi.homeDir }}/.config/sops/age/chezmoi.txt"
+  recipient = "age19kk2hhldesux98t50r9wmdhdvj7xw29205gy58tj70m53p5dweksv70uh9"
+{{- end }}

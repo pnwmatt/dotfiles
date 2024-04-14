@@ -1,0 +1,9 @@
+{{- if and (contains "bluefin-cli" .chezmoi.hostname) .homelab -}}
+#!/usr/bin/env bash
+
+# This script will run whenever there's an update in .local/bin/configure_nfs_mounts.bash
+# configure_nfs_mounts.bash hash: {{ include "dot_local/bin/executable_configure_nfs_mounts.bash" | sha256sum }}
+
+distrobox-host-exec configure_nfs_mounts.bash --run
+
+{{- end -}}
