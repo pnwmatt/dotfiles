@@ -8,6 +8,7 @@ packages:
       - duf
       - dust
       - dysk
+      - ollama
       - thefuck
       - yt-dlp
       # home-ops
