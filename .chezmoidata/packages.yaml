@@ -23,7 +23,6 @@ packages:
       - talhelper
     flatpaks:
       # apps
-      - com.brave.Browser
       - com.calibre_ebook.calibre
       - com.github.PintaProject.Pinta
       - com.logseq.Logseq
