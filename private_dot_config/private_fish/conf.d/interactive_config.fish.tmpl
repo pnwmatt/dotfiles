@@ -15,6 +15,10 @@ status --is-interactive; and begin
         direnv hook fish | source
     end
 
+    if type -q dysk
+        alias dysk='dysk --filter "type <> nfs4"'
+    end
+
     if type -q eza
         alias ll='eza -l --icons=auto --group-directories-first' 2>/dev/null
         alias l.='eza -d .*' 2>/dev/null
