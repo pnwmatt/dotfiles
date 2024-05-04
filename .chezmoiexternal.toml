@@ -56,3 +56,10 @@
     exact = true
     stripComponents = 2
     refreshPeriod = "168h"
+
+# ledger - udev rules
+[".local/bin/ledger_udev_rules.sh"]
+    type = "file"
+    executable = true
+    url = "https://raw.githubusercontent.com/LedgerHQ/udev-rules/master/add_udev_rules.sh"
+    refreshPeriod = "168h"

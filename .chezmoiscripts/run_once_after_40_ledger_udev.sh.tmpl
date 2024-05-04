@@ -1,0 +1,6 @@
+#!{{ lookPath "fish" }}
+
+echo -e "\033[0;32m>>>>> Adding udev rules for Ledger devices <<<<<\033[0m"
+
+
+distrobox-host-exec sudo bash ~/.local/bin/ledger_udev_rules.sh
