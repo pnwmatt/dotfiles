@@ -63,7 +63,7 @@ status --is-interactive; and begin
     end
 
     if type -q kubectl
-        alias k='kubectl'
+        abbr --add --global -- k 'kubectl'
     end
 
     if type -q rg
