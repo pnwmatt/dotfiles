@@ -1,4 +1,4 @@
-{{- if and (contains "bluefin-cli" .chezmoi.hostname) .homelab -}}
+{{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop .personal -}}
 #!/usr/bin/env bash
 
 # This script will run whenever there's an update in .local/bin/configure_nfs_mounts.bash

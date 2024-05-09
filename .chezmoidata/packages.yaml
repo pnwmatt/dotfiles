@@ -1,15 +1,17 @@
 packages:
-  bluefin:
-    taps:
+  taps:
+    desktop:
       - fluxcd/tap
       - siderolabs/tap
-    brews:
-      - cocogitto
+  brews:
+    common:
       - duf
       - dust
       - dysk
-      - ollama
       - thefuck
+    desktop:
+      - cocogitto
+      - ollama
       - yt-dlp
       # home-ops
       - age
@@ -21,7 +23,8 @@ packages:
       - siderolabs/tap/talosctl
       - sops
       - talhelper
-    flatpaks:
+  flatpaks:
+    desktop:
       # apps
       - com.calibre_ebook.calibre
       - com.github.PintaProject.Pinta

@@ -2,9 +2,15 @@
 install.sh
 LICENSE
 README.md
-{{- if not .homelab }}
+{{- if (or (not .desktop) (not .personal)) }}
+.config/autostart/
+.config/containers/
+.config/discord/
+.config/git/
 .config/k9s/
+.config/rclone/
 .config/sops/
+.local/bin
 .kube/config
 .talos/config
 .mc/config

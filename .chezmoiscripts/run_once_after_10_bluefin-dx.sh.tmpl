@@ -1,4 +1,4 @@
-{{- if contains "bluefin-cli" .chezmoi.hostname -}}
+{{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop -}}
 #!/usr/bin/env bash
 
 echo -e "\033[0;32m>>>>> Begin Setting Up Bluefin Preferences <<<<<\033[0m"

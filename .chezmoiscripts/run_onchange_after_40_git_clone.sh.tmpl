@@ -1,4 +1,4 @@
-{{- if .homelab -}}
+{{- if and .desktop .personal -}}
 #!/usr/bin/env bash
 
 base_dir="{{ .chezmoi.homeDir }}/repositories"

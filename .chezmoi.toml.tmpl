@@ -3,29 +3,36 @@
 
 {{- /* Template file for chezmoi config file */ -}}
 {{- $gnome := false -}}{{/* true if this machine is using gnome */}}
-{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
-{{- $homelab := false -}}{{/* true if this machine is used for homelab work */}}
-{{- $agekey := false -}}{{/* true if this machine has agekey to decrypt secret */}}
+{{- $personal := false -}}{{/* true if this machine is personal */}}
+{{- $desktop := false -}}{{/* true if this machine is a desktop */}}
+{{- $server := false -}}{{/* true if this machine is a server */}}
+{{- $headless := false -}}{{/* true if this machine is personal */}}
+
 
 {{- if hasKey . "gnome" -}}
 {{-   $gnome = .gnome -}}
 {{- else if $interactive -}}
 {{-   $gnome = promptBool "gnome" -}}
 {{- end -}}
+{{- if hasKey . "personal" -}}
+{{-   $personal = .personal -}}
+{{- else if $interactive -}}
+{{-   $personal = promptBool "personal" -}}
+{{- end -}}
+{{- if hasKey . "desktop" -}}
+{{-   $desktop = .desktop -}}
+{{- else if $interactive -}}
+{{-   $desktop = promptBool "desktop" -}}
+{{- end -}}
+{{- if hasKey . "server" -}}
+{{-   $server = .server -}}
+{{- else if $interactive -}}
+{{-   $server = promptBool "server" -}}
+{{- end -}}
 {{- if hasKey . "headless" -}}
 {{-   $headless = .headless -}}
 {{- else if $interactive -}}
 {{-   $headless = promptBool "headless" -}}
-{{- end -}}
-{{- if hasKey . "homelab" -}}
-{{-   $homelab = .homelab -}}
-{{- else if $interactive -}}
-{{-   $homelab = promptBool "homelab" -}}
-{{- end -}}
-{{- if hasKey . "agekey" -}}
-{{-   $agekey = .agekey -}}
-{{- else if $interactive -}}
-{{-   $agekey = promptBool "agekey" -}}
 {{- end -}}
 
 {{- if $interactive -}}
@@ -33,12 +40,13 @@
 {{- end -}}
 
 [data]
-  homelab = {{ $homelab }}
   gnome = {{ $gnome }}
-  agekey = {{ $agekey }}
+  personal = {{ $personal }}
+  desktop = {{ $desktop }}
+  server = {{ $server }}
 
 encryption = "age"
-{{- if $agekey }}
+{{- if $personal }}
 [age]
   identity = "{{ .chezmoi.homeDir }}/.config/sops/age/chezmoi.txt"
   recipient = "age19kk2hhldesux98t50r9wmdhdvj7xw29205gy58tj70m53p5dweksv70uh9"
