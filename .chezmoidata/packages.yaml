@@ -23,6 +23,14 @@ packages:
       - siderolabs/tap/talosctl
       - sops
       - talhelper
+    server:
+      - atuin
+      - btop
+      - chezmoi
+      - topgrade
+      - go-task
+      - starship
+      - zoxide
   flatpaks:
     desktop:
       # apps

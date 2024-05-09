@@ -1,0 +1,5 @@
+{{- if .server -}}
+[post_commands]
+"Fish completions" = "~/.local/share/chezmoi/.chezmoiscripts/run_once_after_20_fish_completions.sh.tmpl"
+"Chezmoi" = "chezmoi update --force"
+{{- end -}}

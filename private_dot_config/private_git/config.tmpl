@@ -25,10 +25,12 @@
     old = "red"
     whitespace = "red reverse"
 
+{{ if .desktop -}}
 [commit]
     gpgSign = true
     # Show my changes when writing the message
     verbose = true
+{{ end -}}
 
 [core]
     editor = distrobox-host-exec code --wait --reuse-window
@@ -72,8 +74,10 @@
     required = true
     smudge = "git-lfs smudge -- %f"
 
+{{ if .desktop -}}
 [gpg]
     format = "ssh"
+{{ end -}}
 
 # Local configuration, not-versioned
 [include]
@@ -115,6 +119,7 @@
 [tag]
     sort = "version:refname"
 
+{{ if .desktop -}}
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
 
@@ -125,3 +130,4 @@
     email = "27022259+auricom@users.noreply.github.com"
     name = "auricom"
     signingkey = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519"
+{{ end -}}

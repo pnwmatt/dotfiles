@@ -6,7 +6,6 @@ README.md
 .config/autostart/
 .config/containers/
 .config/discord/
-.config/git/
 .config/k9s/
 .config/rclone/
 .config/sops/

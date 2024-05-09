@@ -18,6 +18,11 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{ end -}}
 {{ end -}}
+{{ if .server -}}
+{{ range .packages.brews.server -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ end -}}
 EOF
 
 {{ if .desktop -}}
