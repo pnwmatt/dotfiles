@@ -4,6 +4,8 @@ add_newline = true
 
 format = """\
   $username\
+  $container\
+  $hostname\
   $directory\
   $kubernetes\
   $git_branch\
@@ -45,16 +47,25 @@ only_detached = false
 style = "grey"
 tag_symbol = " "
 
+[golang]
+format = 'via [$symbol]($style)'
+
 [hostname]
 ssh_only = false
 style = 'blue bold dimmed'
 format = '[$ssh_symbol$hostname]($style) '
 
+[helm]
+format = 'via [$symbol]($style)'
+
 [kubernetes]
-disabled = false
+disabled = true
 symbol = "󱃾 "
 format = "[\\[$symbol$context \\($namespace\\)\\]]($style) "
 style  = "bold bright-green"
+
+[nodejs]
+format = 'via [$symbol]($style)'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -86,7 +97,7 @@ crust = "#11111b"
 
 [python]
 disabled = false
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = 'via [$symbol]($style)'
 symbol = " "
 
 [username]
