@@ -12,6 +12,7 @@ packages:
     desktop:
       - cocogitto
       - ollama
+      - pre-commit
       - yt-dlp
       # home-ops
       - age
