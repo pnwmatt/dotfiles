@@ -1,0 +1,38 @@
+{{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop .personal -}}
+#!/usr/bin/env bash
+
+set -oue pipefail
+
+echo -e "\033[0;32m>>>>> Customize Grub Theme <<<<<\033[0m"
+
+# Define the file path
+GRUB_FILE="/etc/default/grub"
+
+# Check if the file exists
+if [ ! -f "/run/host/$GRUB_FILE" ]; then
+    echo "Error: $GRUB_FILE does not exist."
+    exit 1
+fi
+
+# Backup the original file before modifying
+distrobox-host-exec sudo cp $GRUB_FILE "${GRUB_FILE}.bak"
+
+# Use sed to replace the line
+distrobox-host-exec sudo sed -i 's/^GRUB_TERMINAL_OUTPUT="console"$/GRUB_TERMINAL_OUTPUT="gfxterm"/' $GRUB_FILE
+
+# Check if 'GRUB_THEME' is in the file
+if grep -q "^GRUB_THEME" "/run/host/$GRUB_FILE"; then
+    echo "GRUB_THEME is already set."
+else
+    # Append GRUB_THEME line to the file
+    # distrobox-host-exec sh -c "sed -i -e '/^\(GRUB_THEME=\).*/{s//\1value/;:a;n;ba;q}' -e '$aGRUB_THEME=/boot/grub2/themes/hyperfluent/theme.txt' $GRUB_FILE"
+    echo "GRUB_THEME has been added to $GRUB_FILE."
+fi
+
+distrobox-host-exec sudo grub2-switch-to-blscfg
+distrobox-host-exec sudo grub2-mkconfig -o /etc/grub2.cfg
+
+# Output success message
+echo "The GRUB configuration has been updated successfully."
+
+{{- end -}}
