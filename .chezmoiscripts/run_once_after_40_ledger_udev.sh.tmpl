@@ -1,5 +1,7 @@
 {{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop .personal -}}
-#!{{ lookPath "fish" }}
+#!/usr/bin/env bash
+
+set -oue pipefail
 
 echo -e "\033[0;32m>>>>> Adding udev rules for Ledger devices <<<<<\033[0m"
 

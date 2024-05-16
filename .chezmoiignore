@@ -8,6 +8,7 @@ README.md
 .config/k9s/
 .config/rclone/
 .config/sops/
+.config/topgrade.d
 .local/bin
 .kube/config
 .talos/config

@@ -1,6 +1,8 @@
 {{- if and .desktop .personal -}}
 #!/usr/bin/env bash
 
+set -oue pipefail
+
 base_dir="{{ .chezmoi.homeDir }}/repositories"
 
 clone_repo() {
