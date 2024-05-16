@@ -1,3 +1,4 @@
+{{- if .desktop }}
 [Unit]
 Description=The Ollama container
 After=local-fs.target
@@ -30,3 +31,4 @@ AddDevice=nvidia.com/gpu=all
 
 [Install]
 RequiredBy=default.target
+{{- end }}

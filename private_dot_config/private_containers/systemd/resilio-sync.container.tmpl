@@ -1,3 +1,4 @@
+{{- if .desktop }}
 [Unit]
 Description=Resilio Sync - a fast, reliable file and folder syncing solution for homes and businesses.
 
@@ -22,3 +23,4 @@ Volume=/var/home/%u/sync:/sync:Z,U
 
 [Install]
 WantedBy=multi-user.target
+{{- end }}

@@ -5,9 +5,11 @@ packages:
       - siderolabs/tap
   brews:
     common:
+      - age
       - duf
       - dust
       - dysk
+      - sops
       - thefuck
     desktop:
       - cocogitto
@@ -15,23 +17,13 @@ packages:
       - pre-commit
       - yt-dlp
       # home-ops
-      - age
       - kubectl
       - kubectx
       - krew
       - kustomize
       - fluxcd/tap/flux
       - siderolabs/tap/talosctl
-      - sops
       - talhelper
-    server:
-      - atuin
-      - btop
-      - chezmoi
-      - topgrade
-      - go-task
-      - starship
-      - zoxide
   flatpaks:
     desktop:
       # apps

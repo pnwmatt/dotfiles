@@ -3,10 +3,9 @@ Description=Bluefin CLI, leveraging Wolfi to provide you brew
 
 [Service]
 Restart=always
-TimeoutStartSec=60
+TimeoutStartSec=900
 # Ensure there's a userland podman.sock
 ExecStartPre=/bin/systemctl --user enable podman.socket
-# Ensure that the dir exists
 ExecStartPre=-mkdir -p %h/.nix-portable/nix/store
 
 [Container]
