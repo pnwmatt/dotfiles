@@ -82,4 +82,10 @@ status --is-interactive; and begin
     if type -q thefuck
         thefuck --alias | source
     end
+
+    # Launch bluefin-cli distrobox on ucore servers
+    if test "$hostname" = "service.feisar.ovh" -o "$hostname" = "storage.feisar.ovh"
+        distrobox enter bluefin-cli
+    end
+
 end
