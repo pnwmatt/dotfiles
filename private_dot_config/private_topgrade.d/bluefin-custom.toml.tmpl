@@ -1,0 +1,4 @@
+[post_commands]
+"Fish completions" = "podman exec -i -t $(podman ps | grep auricom/bluefin-cli | awk '{print $1}') fish -c 'set -x PATH $PATH:/home/linuxbrew/.linuxbrew/bin ; ~/.local/share/chezmoi/.chezmoiscripts/run_once_after_20_fish_completions.sh.tmpl'"
+"Chezmoi" = "podman exec -i -t $(podman ps | grep auricom/bluefin-cli | awk '{print $1}') fish -c 'set -x PATH $PATH:/home/linuxbrew/.linuxbrew/bin ; chezmoi update --force'"
+"Devbox" = "devbox version upgrade"
