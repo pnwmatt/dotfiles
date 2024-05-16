@@ -6,6 +6,16 @@ if not test -d $__fish_config_dir/completions
   mkdir -p $__fish_config_dir/completions
 end
 
+if type -q brew
+  echo "setting up brew completion"
+  if test -d (brew --prefix)"/share/fish/completions"
+    set -p fish_complete_path (/home/linuxbrew/.linuxbrew/binb/rew --prefix)/share/fish/completions
+  end
+  if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+      set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+  end
+end
+
 if type -q chezmoi
   echo "setting up chezmoi completion"
   chezmoi completion fish --output=$__fish_config_dir/completions/chezmoi.fish

@@ -15,6 +15,10 @@ status --is-interactive; and begin
         direnv hook fish | source
     end
 
+    if type -q distrobox
+        abbr --add -- bcli 'distrobox enter bluefin-cli'
+    end
+
     if type -q dysk
         alias dysk='dysk --filter "type <> nfs4"'
     end
@@ -76,16 +80,12 @@ status --is-interactive; and begin
     end
 
     if type -q starship
+        set -x STARSHIP_CONFIG ~/.config/starship.toml
         starship init fish | source
     end
 
     if type -q thefuck
         thefuck --alias | source
-    end
-
-    # Launch bluefin-cli distrobox on ucore servers
-    if test "$hostname" = "service.feisar.ovh" -o "$hostname" = "storage.feisar.ovh"
-        distrobox enter bluefin-cli
     end
 
 end
