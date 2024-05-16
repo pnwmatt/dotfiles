@@ -1,14 +1,8 @@
+{{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop -}}
 #!/usr/bin/env bash
 
 set -oue pipefail
 
-echo -e "\033[0;32m>>>>> Begin Setting Common Preferences <<<<<\033[0m"
-
-echo "changing shell to /usr/bin/fish"
-distrobox-host-exec sudo usermod $USER --shell /usr/bin/fish
-
-
-{{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop -}}
 echo -e "\033[0;32m>>>>> Begin Setting Bluefin Preferences <<<<<\033[0m"
 
 echo "install recommended gnome extensions"
