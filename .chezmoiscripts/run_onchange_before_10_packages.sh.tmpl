@@ -12,11 +12,11 @@ brew tap {{ . }}
 {{ end -}}
 {{ end -}}
 brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range .packages.brews.common -}}
+{{ range .packages.brew.common -}}
 brew {{ . | quote }}
 {{ end -}}
 {{ if .desktop -}}
-{{ range .packages.brews.desktop -}}
+{{ range .packages.brew.desktop -}}
 brew {{ . | quote }}
 {{ end -}}
 {{ end -}}
@@ -24,7 +24,7 @@ EOF
 
 {{ if .desktop -}}
 flatpak install -y --system \
-{{ range .packages.flatpaks.desktop -}}
+{{ range .packages.flatpak.desktop -}}
 {{ . }} \
 {{ end -}}
 {{ end -}}

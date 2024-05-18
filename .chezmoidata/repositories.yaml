@@ -7,8 +7,6 @@ repositories:
     repo: ublue-custom
   - user: auricom
     repo: ucore-custom
-  - user: auricom
-    repo: bluefin-cli
   - user: ngnodehq
     repo: console
   - user: ngnodehq

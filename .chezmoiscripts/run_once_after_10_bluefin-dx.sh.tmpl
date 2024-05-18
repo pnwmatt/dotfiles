@@ -1,4 +1,4 @@
-{{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop -}}
+{{- if .desktop -}}
 #!/usr/bin/env bash
 
 set -oue pipefail
@@ -6,38 +6,38 @@ set -oue pipefail
 echo -e "\033[0;32m>>>>> Begin Setting Bluefin Preferences <<<<<\033[0m"
 
 echo "install recommended gnome extensions"
-distrobox-host-exec ujust get-gnome-extensions
+ujust get-gnome-extensions
 
 echo "install custom extensions"
-distrobox-host-exec gext install gTile@vibou
-distrobox-host-exec gext install Vitals@CoreCoding.com
+gext install gTile@vibou
+gext install Vitals@CoreCoding.com
 
 echo "install incus"
-distrobox-host-exec ujust install-incus
+ujust install-incus
 
 echo "configure docker, incus-admin, lxd, libvrt container manager permissions"
-distrobox-host-exec ujust dx-group
+ujust dx-group
 
 echo "configure ptyxis transparency to 0.95"
-distrobox-host-exec ujust ptyxis-transparency
+ujust ptyxis-transparency
 
 # Gnome
 
 # echo "setting gnome interface font"
-# distrobox-host-exec gsettings set org.gnome.desktop.interface font-name 'Inter Display 12'
+# gsettings set org.gnome.desktop.interface font-name 'Inter Display 12'
 
 # echo "setting gnome document font"
-# distrobox-host-exec gsettings set org.gnome.desktop.interface document-font-name 'Inter Display 12'
+# gsettings set org.gnome.desktop.interface document-font-name 'Inter Display 12'
 
 echo "setting gnome monospace font"
-distrobox-host-exec gsettings set org.gnome.desktop.interface monospace-font-name 'IBM Plex Mono Medium 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'IBM Plex Mono Medium 11'
 
 # echo "setting legacy window titles font"
-# distrobox-host-exec gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Inter Display weight=660 12'
+# gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Inter Display weight=660 12'
 
 echo "setting cursors"
-distrobox-host-exec gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'
+gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'
 
 echo "hiding Dash-to-Dock"
-distrobox-host-exec gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 {{- end -}}

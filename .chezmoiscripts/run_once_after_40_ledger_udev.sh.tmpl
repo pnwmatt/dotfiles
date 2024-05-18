@@ -1,4 +1,4 @@
-{{- if and (contains "bluefin-cli" .chezmoi.hostname) .desktop .personal -}}
+{{- if and .desktop .personal -}}
 #!/usr/bin/env bash
 
 set -oue pipefail
@@ -6,5 +6,5 @@ set -oue pipefail
 echo -e "\033[0;32m>>>>> Adding udev rules for Ledger devices <<<<<\033[0m"
 
 
-distrobox-host-exec sudo bash ~/.local/bin/ledger_udev_rules.sh
+sudo bash ~/.local/bin/ledger_udev_rules.sh
 {{- end -}}

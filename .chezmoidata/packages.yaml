@@ -3,28 +3,49 @@ packages:
     desktop:
       - fluxcd/tap
       - siderolabs/tap
-  brews:
+  brew:
     common:
       - age
+      - atuin
+      - bat
+      - btop
+      - chezmoi
+      - direnv
       - duf
       - dust
       - dysk
+      - eza
+      - fd
+      - fzf
+      - gawk
+      - go-task
+      - helix
+      - ripgrep
       - sops
+      - starship
       - thefuck
+      - uutils-coreutils
+      - uutils-diffutils
+      - uutils-findutils
+      - zoxide
     desktop:
       - cocogitto
       - ollama
       - pre-commit
+      - tig
       - yt-dlp
       # home-ops
+      - k9s
       - kubectl
       - kubectx
       - krew
       - kustomize
       - fluxcd/tap/flux
+      - mc
+      - rclone
       - siderolabs/tap/talosctl
       - talhelper
-  flatpaks:
+  flatpak:
     desktop:
       # apps
       - com.calibre_ebook.calibre

@@ -15,10 +15,6 @@ status --is-interactive; and begin
         direnv hook fish | source
     end
 
-    if type -q distrobox
-        abbr --add -- bcli 'distrobox enter bluefin-cli'
-    end
-
     if type -q dysk
         alias dysk='dysk --filter "type <> nfs4"'
     end
