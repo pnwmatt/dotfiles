@@ -49,7 +49,6 @@ packages:
   flatpak:
     desktop:
       # apps
-      - com.brave.Browser
       - com.calibre_ebook.calibre
       - com.github.PintaProject.Pinta
       - com.logseq.Logseq
@@ -60,6 +59,7 @@ packages:
       - io.gitlab.librewolf-community
       - io.kopia.KopiaUI
       - net.cozic.joplin_desktop
+      - org.chromium.Chromium
       - org.musicbrainz.Picard
       # games
       - org.freedesktop.Platform.VulkanLayer.gamescope//23.08
