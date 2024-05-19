@@ -16,7 +16,7 @@
     url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme"
     refreshPeriod = "168h"
 
-{{- if .desktop -}}
+{{ if .desktop }}
 # Bibata cursors
 [".local/share/icons"]
     type = "archive"
@@ -24,7 +24,7 @@
     url = "https://github.com/stanio/Bibata_Cursor/releases/download/v2.0.6-stanio-6/Bibata-Classic-Linux-v2.0.6-stanio-6.tar.xz"
     exact = true
     include = ["Bibata-Modern-Classic/**"]
-{{- end -}}
+{{ end }}
 
 # btop catppuccin themes
 [".config/btop/themes/catppuccin_latte.theme"]
@@ -51,7 +51,7 @@
 #     exact = true
 #     refreshPeriod = "168h"
 
-{{- if .desktop -}}
+{{ if .desktop }}
 # k9s Catppuccin themes
 [".config/k9s/skins"]
     type = "archive"
