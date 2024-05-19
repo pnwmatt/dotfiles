@@ -1,4 +1,4 @@
-{{- if .desktop -}}
+{{ if .desktop }}
 #!/usr/bin/env bash
 
 set -oue pipefail
@@ -40,4 +40,6 @@ gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'
 
 echo "hiding Dash-to-Dock"
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
-{{- end -}}
+{{ end }}
+
+systemctl start setup-nix-portable.service
