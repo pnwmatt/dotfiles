@@ -2,6 +2,7 @@ packages:
   taps:
     desktop:
       - fluxcd/tap
+      - homebrew/command-not-found
       - siderolabs/tap
   brew:
     common:
