@@ -4,6 +4,8 @@ repositories:
   - user: auricom
     repo: containers
   - user: auricom
+    repo: toolboxes
+  - user: auricom
     repo: ublue-custom
   - user: auricom
     repo: ucore-custom

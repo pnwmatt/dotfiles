@@ -55,10 +55,12 @@ packages:
       - com.slack.Slack
       - dev.k8slens.OpenLens
       - dev.vencord.Vesktop
+      - fr.handbrake.ghb
       - io.github.quodlibet.QuodLibet
       - io.gitlab.librewolf-community
       - io.kopia.KopiaUI
       - net.cozic.joplin_desktop
+      - org.bunkus.mkvtoolnix-gui
       - org.chromium.Chromium
       - org.musicbrainz.Picard
       # games
