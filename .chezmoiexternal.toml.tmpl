@@ -43,7 +43,7 @@
     type = "file"
     url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_mocha.theme"
     refreshPeriod = "168h"
-
+{{ if .desktop }}
 # # GTK Catppuccin theme
 # [".themes"]
 #     type = "archive"
@@ -51,7 +51,7 @@
 #     exact = true
 #     refreshPeriod = "168h"
 
-{{ if .desktop }}
+
 # k9s Catppuccin themes
 [".config/k9s/skins"]
     type = "archive"
@@ -65,5 +65,24 @@
     type = "file"
     executable = true
     url = "https://raw.githubusercontent.com/LedgerHQ/udev-rules/master/add_udev_rules.sh"
+    refreshPeriod = "168h"
+
+# nerd font CascadiaCode
+[".local/share/fonts/CaskaydiaCoveNerdFont-Italic.ttf"]
+    type = 'file'
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFont-Italic.ttf"
+    refreshPeriod = "168h"
+[".local/share/fonts/CaskaydiaCoveNerdFont-Regular.ttf"]
+    type = 'file'
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFont-Regular.ttf"
+    refreshPeriod = "168h"
+# nerd font IBM Plex Mono
+[".local/share/fonts/BlexMonoNerdFontMono-Medium.ttf"]
+    type = 'file'
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/IBMPlexMono/Mono/BlexMonoNerdFontMono-Medium.ttf"
+    refreshPeriod = "168h"
+[".local/share/fonts/BlexMonoNerdFontMono-Regular.ttf"]
+    type = 'file'
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/IBMPlexMono/Mono/BlexMonoNerdFontMono-Regular.ttf"
     refreshPeriod = "168h"
 {{- end -}}
