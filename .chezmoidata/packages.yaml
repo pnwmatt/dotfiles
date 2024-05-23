@@ -42,7 +42,7 @@ packages:
       - krew
       - kustomize
       - fluxcd/tap/flux
-      - mc
+      - minio-mc
       - rclone
       - siderolabs/tap/talosctl
       - talhelper
@@ -59,6 +59,7 @@ packages:
       - io.github.quodlibet.QuodLibet
       - io.gitlab.librewolf-community
       - io.kopia.KopiaUI
+      - me.timschneeberger.GalaxyBudsClient
       - net.cozic.joplin_desktop
       - org.bunkus.mkvtoolnix-gui
       - org.chromium.Chromium
