@@ -1,0 +1,25 @@
+{{- if .desktop }}
+[Unit]
+Description=Tdarr-node
+
+[Service]
+TimeoutStartSec=900
+Restart=always
+RestartSec=3
+
+[Container]
+Annotation=run.oci.keep_original_groups=1
+AutoUpdate=registry
+ContainerName=tdarr-node
+Environment=nodeID={{ .chezmoi.hostname }}
+Environment=serverIP=192.168.169.117
+Environment=serverPort=8266
+Image=docker.io/haveagitgat/tdarr_node:latest
+User=root:root
+Volume=/mnt/storage.feisar.ovh/video/tv:/mnt/tv:rslave
+Volume=/mnt/storage.feisar.ovh/video/movies:/mnt/movies:rslave
+Volume=/mnt/storage.feisar.ovh/video/.tdarr:/mnt/shared:rslave
+
+[Install]
+WantedBy=multi-user.target
+{{- end }}
