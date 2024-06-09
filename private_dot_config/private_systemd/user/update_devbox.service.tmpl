@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto update devbox
+After=local-fs.target
+After=network-online.target
+ConditionPathExists=/usr/bin/devbox
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/devbox version update
