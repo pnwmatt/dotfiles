@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto update chezmoi
+After=local-fs.target
+After=network-online.target
+ConditionPathExists=/home/linuxbrew/.linuxbrew/bin/chezmoi
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/update_chezmoi.sh
