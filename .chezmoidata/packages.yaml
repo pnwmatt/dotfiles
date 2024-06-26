@@ -50,6 +50,7 @@ packages:
     desktop:
       # apps
       - com.calibre_ebook.calibre
+      - com.github.rafostar.Clapper
       - com.github.PintaProject.Pinta
       - com.logseq.Logseq
       - com.slack.Slack
