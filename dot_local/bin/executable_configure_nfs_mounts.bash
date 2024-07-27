@@ -54,6 +54,7 @@ add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/downloads" "${MOUNTPOINT_PREFI
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/home/helene" "${MOUNTPOINT_PREFIX}/home-helene" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/home/claude" "${MOUNTPOINT_PREFIX}/home-claude" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/music" "${MOUNTPOINT_PREFIX}/music" "${OPTS}" 0 0
+add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/piracy" "${MOUNTPOINT_PREFIX}/piracy" "${OPTS}" 0 0
 
 if ! ${should_backup}; then
     systemctl daemon-reload
