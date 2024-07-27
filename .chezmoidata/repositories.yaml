@@ -19,3 +19,5 @@ repositories:
     repo: kube-ops
   - user: ngnodehq
     repo: landing-page
+  - user: ngnodehq
+    repo: renovate-config
