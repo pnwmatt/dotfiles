@@ -7,3 +7,4 @@ ConditionPathExists=/home/linuxbrew/.linuxbrew/bin/chezmoi
 [Service]
 Type=oneshot
 ExecStart=%h/.local/bin/update_chezmoi.sh
+Environment=PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

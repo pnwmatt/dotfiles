@@ -15,23 +15,3 @@ if [ -n "$FILES" ]; then
 else
   echo -e "\n## No files to update without local changes"
 fi
-
-echo -e "\n## Files with local changes that need adding"
-/home/linuxbrew/.linuxbrew/bin/chezmoi status 1>&2echo "## Pulling latest from GitHub"
-/home/linuxbrew/.linuxbrew/bin/chezmoi git pull
-
-# get a list of files to update that don't have local changes
-FILES=$(/home/linuxbrew/.linuxbrew/bin/chezmoi status | awk '/^ / {print $2}')
-
-if [ -n "$FILES" ]; then
-  echo -e "\\n## Updating files without local changes"
-  for f in $FILES; do
-    echo "... $f"
-    /home/linuxbrew/.linuxbrew/bin/chezmoi apply ~/"$f"
-  done
-else
-  echo -e "\\n## No files to update without local changes"
-fi
-
-echo -e "\\n## Files with local changes that need adding"
-/home/linuxbrew/.linuxbrew/bin/chezmoi status 1>&2

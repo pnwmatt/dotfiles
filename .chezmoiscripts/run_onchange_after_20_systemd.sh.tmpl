@@ -2,7 +2,7 @@
 
 set -oue pipefail
 
-echo -e "\033[0;32m>>>>> Reload systemctl for quadlets <<<<<\033[0m"
+echo -e "\033[0;32m>>>>> Reload systemctl for quadlets and systemd units <<<<<\033[0m"
 
 # This script will run whenever there's an update in .config/containers/systemd/* or .config/systemd/user/*
 {{ if and .desktop .personal }}
