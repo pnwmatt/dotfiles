@@ -11,15 +11,9 @@ echo -e "\033[0;32m>>>>> Reload systemctl for quadlets and systemd units <<<<<\0
 # ollama.network hash: {{ include "private_dot_config/private_containers/systemd/ollama.network.tmpl" | sha256sum }}
 # ollama-web hash: {{ include "private_dot_config/private_containers/systemd/ollama-web.container.tmpl" | sha256sum }}
 # tdarr-node: {{ include "private_dot_config/private_containers/systemd/tdarr-node.container.tmpl" | sha256sum }}
-# update_devbox: {{ include "private_dot_config/private_systemd/user/update_devbox.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/update_devbox.timer.tmpl" | sha256sum }}
 {{ end }}
-# update_chezmoi: {{ include "private_dot_config/private_systemd/user/update_chezmoi.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/update_chezmoi.timer.tmpl" | sha256sum }}
-# update_fish_completion: {{ include "private_dot_config/private_systemd/user/update_fish_completion.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/update_fish_completion.timer.tmpl" | sha256sum }}
+# update_custom: {{ include "private_dot_config/private_systemd/user/update_custom.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/update_custom.timer.tmpl" | sha256sum }}
 
 systemctl --user daemon-reload
-{{ if and .desktop .personal }}
-systemctl --user enable update_devbox.timer
-{{ end }}
-systemctl --user enable update_chezmoi.timer
-systemctl --user enable update_fish_completion.timer
+systemctl --user enable update_custom.timer
 

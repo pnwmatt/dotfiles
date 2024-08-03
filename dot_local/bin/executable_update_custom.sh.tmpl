@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+
+# Chezmoi
+echo "Chezmoi | ## Pulling latest from GitHub"
+/home/linuxbrew/.linuxbrew/bin/chezmoi git pull
+
+# get a list of files to update that don't have local changes
+FILES=$(/home/linuxbrew/.linuxbrew/bin/chezmoi status | awk '/^ / {print $2}')
+
+if [ -n "$FILES" ]; then
+  echo -e "Chezmoi | \n## Updating files without local changes"
+  for f in $FILES; do
+    echo "... $f"
+    /home/linuxbrew/.linuxbrew/bin/chezmoi apply ~/"$f"
+  done
+else
+  echo -e "Chezmoi | \n## No files to update without local changes"
+fi
+
+{{ if and .desktop .personal }}
+# Devbox
+echo "Devbox..."
+/usr/bin/devbox version update
+{{ end }}
+
+# Fish completion
+echo "Fish completion..."
+/usr/bin/fish -c "{{ .chezmoi.homeDir }}/.local/share/chezmoi/.chezmoiscripts/run_once_after_20_fish_completions.sh.tmpl"
+
+{{ if and .desktop .personal }}
+# Windmill CLI
+echo "Windmill CLI..."
+{{ .chezmoi.homeDir }}/.deno/bin/wmill upgrade
+{{ end }}

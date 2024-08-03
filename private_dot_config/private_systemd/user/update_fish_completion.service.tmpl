@@ -1,9 +1,0 @@
-[Unit]
-Description=Auto update fish completion
-After=local-fs.target
-After=network-online.target
-ConditionPathExists=%h/.local/share/chezmoi/.chezmoiscripts/run_once_after_20_fish_completions.sh.tmpl
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/fish -c "%h/.local/share/chezmoi/.chezmoiscripts/run_once_after_20_fish_completions.sh.tmpl"

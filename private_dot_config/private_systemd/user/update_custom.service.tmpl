@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto update custom
+After=local-fs.target
+After=network-online.target
+ConditionPathExists=%h/.local/bin/update_custom.sh
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c "%h/.local/bin/update_custom.sh"
