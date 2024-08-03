@@ -21,6 +21,7 @@ packages:
       - gawk
       - go-task
       - helix
+      - rclone
       - ripgrep
       - sops
       - starship
@@ -44,7 +45,6 @@ packages:
       - kustomize
       - fluxcd/tap/flux
       - minio-mc
-      - rclone
       - siderolabs/tap/talosctl
       - talhelper
   flatpak:
