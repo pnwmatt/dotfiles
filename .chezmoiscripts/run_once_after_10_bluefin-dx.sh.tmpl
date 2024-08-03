@@ -1,25 +1,28 @@
 {{- if .desktop -}}
 #!/usr/bin/env bash
 
-echo -e "\033[0;32m>>>>> Begin Setting Bluefin Preferences <<<<<\033[0m"
+install_extension() {
+    local extension_id=$1
+    if ! gnome-extensions list | grep -q "$extension_id"; then
+        gext install "$extension_id"
+        echo "Extension $extension_id has been installed."
+    else
+        echo "Extension $extension_id is already installed."
+    fi
+}
 
-echo "add current user to sudo group"
-current_user=$(whoami)
-if ! groups "$current_user" | grep -q "\bsudo\b"; then
-    sudo usermod -aG sudo "$current_user"
-    echo "User $current_user has been added to the sudo group."
-fi
+echo -e "\033[0;32m>>>>> Begin Setting Bluefin Preferences <<<<<\033[0m"
 
 set -oue pipefail
 
 echo "install custom extensions"
-gext install nightthemeswitcher@romainvigier.fr
-gext install gTile@vibou
-gext install streamcontroller@core447.com
-gext install Vitals@CoreCoding.com
+install_extension "nightthemeswitcher@romainvigier.fr"
+install_extension "gTile@vibou"
+install_extension "streamcontroller@core447.com"
+install_extension "Vitals@CoreCoding.com"
 
-echo "install incus"
-ujust install-incus
+# echo "install incus"
+# ujust install-incus
 
 echo "configure docker, incus-admin, lxd, libvrt container manager permissions"
 ujust dx-group
