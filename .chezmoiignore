@@ -8,8 +8,11 @@ README.md
 .config/k9s/
 .config/sops/
 .config/topgrade.d
-.local/bin
+.local/bin/
 .kube/config
 .talos/config
 .mc/config
+{{- end }}
+{{- if .desktop  }}
+scripts
 {{- end }}
