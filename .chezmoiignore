@@ -6,7 +6,6 @@ README.md
 .config/autostart/
 .config/discord/
 .config/k9s/
-.config/rclone/
 .config/sops/
 .config/topgrade.d
 .local/bin
