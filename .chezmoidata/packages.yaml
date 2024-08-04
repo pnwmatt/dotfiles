@@ -15,6 +15,7 @@ packages:
       - duf
       - dust
       - dysk
+      - exiftool
       - eza
       - fd
       - fzf
