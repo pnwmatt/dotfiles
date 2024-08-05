@@ -11,6 +11,8 @@ repositories:
     repo: ublue-custom
   - user: auricom
     repo: ucore-custom
+  - user: auricom
+    repo: windmill
   - user: ngnodehq
     repo: console
   - user: ngnodehq
