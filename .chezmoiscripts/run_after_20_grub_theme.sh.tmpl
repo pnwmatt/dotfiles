@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -oue pipefail
+
+GRUB_LOCAL="${HOME}/.local/share/grub"
+GRUB_THEME=hyperfluent-fedora
+GRUB_THEME_SOURCE="${GRUB_LOCAL}/${GRUB_THEME}.tar.gz"
+GRUB_THEME_PATH=/boot/grub2/themes/
+CHECKSUM_FILE="${GRUB_LOCAL}/${GRUB_THEME}.checksum"
+
+# Function to calculate SHA256 checksum for a directory
+calculate_sha256() {
+    local dir=$1
+    (find "${dir}/" -type f -print0 | sort -z | xargs -0 sha256sum;
+    find "${dir}/" \( -type f -o -type d \) -print0 | sort -z | xargs -0 stat -c '%n %a') | sha256sum | awk '{print $1}'
+}
+
+# Calculate SHA256 checksums
+SHA_SOURCE=$(calculate_sha256 "${GRUB_THEME_SOURCE}")
+
+# Check if the checksum file exists and read its content
+if [ -f "${CHECKSUM_FILE}" ]; then
+    SHA_STORED=$(cat "${CHECKSUM_FILE}")
+else
+    SHA_STORED=""
+fi
+
+# Compare the calculated checksum with the stored checksum
+if [ "${SHA_SOURCE}" != "${SHA_STORED}" ]; then
+
+    echo -e "\033[0;32m>>>>> Extract Grub Theme <<<<<\033[0m"
+
+    # Update the checksum file
+    echo "${SHA_SOURCE}" > "${CHECKSUM_FILE}"
+
+    # Check if the directory exists
+    if [ -d "${GRUB_THEME_PATH}/${GRUB_THEME}" ]; then
+        # Delete the contents of the directory
+        sudo rm -rf "${GRUB_THEME_PATH}/${GRUB_THEME}/*"
+    else
+        # Create the directory
+        sudo mkdir -p "${GRUB_THEME_PATH}/${GRUB_THEME}"
+    fi
+
+    sudo cp -r "${GRUB_THEME_SOURCE}/." "${GRUB_THEME_PATH}/${GRUB_THEME}/"
+fi

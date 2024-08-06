@@ -1,0 +1,62 @@
+{{- if and .desktop .personal -}}
+#!/usr/bin/env bash
+
+set -oue pipefail
+
+# Define the file path
+GRUB_FILE="/etc/default/grub"
+GRUB_THEME_VALUE="/boot/grub2/themes/hyperfluent-fedora/theme.txt"
+
+# Check if the file exists
+if [ ! -f "${GRUB_FILE}" ]; then
+    echo "Error: ${GRUB_FILE} does not exist."
+    exit 1
+fi
+
+# Check if 'GRUB_TERMINAL_OUTPUT' needs to be modified
+MODIFY_TERMINAL_OUTPUT=false
+if grep -q '^GRUB_TERMINAL_OUTPUT="console"$' "${GRUB_FILE}"; then
+    MODIFY_TERMINAL_OUTPUT=true
+fi
+
+# Check if 'GRUB_THEME' needs to be modified or added
+MODIFY_GRUB_THEME=false
+if grep -q "^GRUB_THEME=" "${GRUB_FILE}"; then
+    if ! grep -q "^GRUB_THEME=${GRUB_THEME_VALUE}$" "${GRUB_FILE}"; then
+        MODIFY_GRUB_THEME=true
+    fi
+else
+    MODIFY_GRUB_THEME=true
+fi
+
+# If any modifications are needed, create a backup
+if $MODIFY_TERMINAL_OUTPUT || $MODIFY_GRUB_THEME; then
+    echo -e "\033[0;32m>>>>> Customize Grub Theme <<<<<\033[0m"
+
+    sudo cp "${GRUB_FILE}" "${GRUB_FILE}.bak"
+
+    # Modify 'GRUB_TERMINAL_OUTPUT' if needed
+    if $MODIFY_TERMINAL_OUTPUT; then
+        sudo sed -i 's/^GRUB_TERMINAL_OUTPUT="console"$/GRUB_TERMINAL_OUTPUT="gfxterm"/' "${GRUB_FILE}"
+        echo "GRUB_TERMINAL_OUTPUT has been updated in ${GRUB_FILE}."
+    fi
+
+    # Modify or append 'GRUB_THEME' if needed
+    if $MODIFY_GRUB_THEME; then
+        if grep -q "^GRUB_THEME=" "${GRUB_FILE}"; then
+            sudo sed -i "s|^GRUB_THEME=.*|GRUB_THEME=${GRUB_THEME_VALUE}|" "${GRUB_FILE}"
+            echo "GRUB_THEME has been updated in ${GRUB_FILE}."
+        else
+            echo "GRUB_THEME=${GRUB_THEME_VALUE}" | sudo tee -a "${GRUB_FILE}"
+            echo "GRUB_THEME has been added to ${GRUB_FILE}."
+        fi
+    fi
+
+    # sudo grub2-switch-to-blscfg
+    sudo grub2-mkconfig -o /etc/grub2.cfg
+fi
+
+# Output success message
+echo "The GRUB configuration has been updated successfully."
+
+{{- end -}}

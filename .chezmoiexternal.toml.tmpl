@@ -43,13 +43,14 @@
     type = "file"
     url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_mocha.theme"
     refreshPeriod = "168h"
+
 {{ if .desktop }}
-# # GTK Catppuccin theme
-# [".themes"]
-#     type = "archive"
-#     url = "https://github.com/catppuccin/gtk/releases/latest/download/Catppuccin-Mocha-Standard-Blue-Dark.zip"
-#     exact = true
-#     refreshPeriod = "168h"
+# HyperFluent GRUB Theme
+[".local/share/grub/hyperfluent-fedora.tar.gz"]
+    type = "archive"
+    format = "zip"
+    url = "https://github.com/Coopydood/HyperFluent-GRUB-Theme/releases/latest/download/hyperfluent-fedora.tar.gz"
+    refreshPeriod = "168h"
 
 
 # k9s Catppuccin themes
