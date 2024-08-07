@@ -74,6 +74,7 @@ status --is-interactive; and begin
 
     if type -q kubectl
         abbr --add --global -- k 'kubectl'
+        abbr --add --global -- kdpf 'kubectl delete pod --force --grace-period 0'
     end
 
     if type -q rg
