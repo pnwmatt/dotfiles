@@ -94,4 +94,7 @@ status --is-interactive; and begin
         thefuck --alias | source
     end
 
+    if type -q zoxide
+        zoxide init --cmd cd fish | source
+    end
 end
