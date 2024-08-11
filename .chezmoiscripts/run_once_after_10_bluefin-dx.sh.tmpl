@@ -24,8 +24,10 @@ install_extension "Vitals@CoreCoding.com"
 # echo "install incus"
 # ujust install-incus
 
-echo "configure docker, incus-admin, lxd, libvrt container manager permissions"
-ujust dx-group
+if ! groups $(whoami) | grep &>/dev/null '\bdocker\b'; then
+    echo "configure docker, incus-admin, lxd, libvrt container manager permissions"
+    ujust dx-group
+fi
 
 echo "configure ptyxis transparency to 0.95"
 ujust ptyxis-transparency
@@ -49,4 +51,7 @@ gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'
 
 echo "hiding Dash-to-Dock"
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+
+echo "set keyboard to qwerty-fr"
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us_qwerty-fr')]"
 {{- end -}}
