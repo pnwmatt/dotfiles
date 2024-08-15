@@ -5,29 +5,29 @@ RCLONE_CONF="{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
 
 # Extract the token from rclone.conf
 if [[ -f "$RCLONE_CONF" ]]; then
-  TOKEN_ACTUAL=$(grep 'token' "$RCLONE_CONF" | awk '{print $3}')
+    TOKEN_ACTUAL=$(grep 'token' "$RCLONE_CONF" | awk '{print $3}')
 else
-  TOKEN_ACTUAL=""
+    TOKEN_ACTUAL=""
 fi
 TOKEN_TEMPLATE=$(cat ${RCLONE_CONF}.token)
 
 # Check if the token is not empty
 if [[ -z "$TOKEN_ACTUAL" || ! -f "$RCLONE_CONF" ]]; then  # Update the TOML file with the new token
 
-  echo -e "\033[0;32m>>>>> Generate rclone configuration <<<<<\033[0m"
+    echo -e "\033[0;32m>>>>> Generate rclone configuration <<<<<\033[0m"
 
-  awk -v new_token="$TOKEN_TEMPLATE" '
-  BEGIN { token_updated = 0 }
-  /^\[gdrive\]/ { in_gdrive = 1 }
-  in_gdrive && /^token/ {
-    $3 = new_token
-    token_updated = 1
-  }
-  { print }
-  END {
-    if (in_gdrive && !token_updated) {
-      print "token = " new_token
+    awk -v new_token="$TOKEN_TEMPLATE" '
+    BEGIN { token_updated = 0 }
+    /^\[gdrive\]/ { in_gdrive = 1 }
+    in_gdrive && /^token/ {
+        $3 = new_token
+        token_updated = 1
     }
-  }
-  ' "$RCLONE_CONF.base" > "${RCLONE_CONF}.tmp" && mv "${RCLONE_CONF}.tmp" "$RCLONE_CONF"
+    { print }
+    END {
+        if (in_gdrive && !token_updated) {
+        print "token = " new_token
+        }
+    }
+    ' "$RCLONE_CONF.base" > "${RCLONE_CONF}.tmp" && mv "${RCLONE_CONF}.tmp" "$RCLONE_CONF"
 fi

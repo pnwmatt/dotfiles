@@ -1,0 +1,11 @@
+{{- if and .desktop .personal -}}
+#!/usr/bin/env bash
+
+set -oue pipefail
+
+# This script will run whenever there's an update in scripts/configure_nfs_mounts.sh
+# configure_nfs_mounts.sh hash: {{ include "scripts/executable_configure_nfs_mounts.sh" | sha256sum }}
+
+${HOME}/scripts/configure_nfs_mounts.sh --run
+
+{{- end -}}

@@ -2,8 +2,9 @@
 Description=Auto update custom
 After=local-fs.target
 After=network-online.target
-ConditionPathExists=%h/.local/bin/update_custom.sh
+ConditionPathExists=%h/scripts/update_custom.sh
 
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/bash -c "%h/scripts/update_custom.sh"
+Environment="PATH=/home/linuxbrew/.linuxbrew/bin:$PATH"

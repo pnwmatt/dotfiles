@@ -21,9 +21,6 @@ install_extension "gTile@vibou"
 install_extension "streamcontroller@core447.com"
 install_extension "Vitals@CoreCoding.com"
 
-# echo "install incus"
-# ujust install-incus
-
 if ! groups $(whoami) | grep &>/dev/null '\bdocker\b'; then
     echo "configure docker, incus-admin, lxd, libvrt container manager permissions"
     ujust dx-group

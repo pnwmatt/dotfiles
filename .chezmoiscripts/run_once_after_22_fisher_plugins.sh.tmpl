@@ -1,0 +1,26 @@
+#!{{ lookPath "fish" }}
+
+echo -e "\033[0;32m>>>>> Begin Installing Fisher plugins <<<<<\033[0m"
+
+# Function to install a Fisher plugin if not already installed
+function install_if_not_installed
+    set plugin $argv[1]
+    if not fisher list | grep -q $plugin
+        fisher install $plugin
+    end
+end
+
+# List of plugins to install
+set plugins \
+    jorgebucaran/autopair.fish \
+    shoriminimoe/fish-extract \
+    patrickf3139/fzf.fish \
+    meaningful-ooo/sponge \
+    gazorby/fish-chezmoi \
+    gazorby/fish-abbreviation-tips \
+    kidonng/zoxide.fish
+
+# Loop through the list and install each plugin if not installed
+for plugin in $plugins
+    install_if_not_installed $plugin
+end

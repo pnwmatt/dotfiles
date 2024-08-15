@@ -1,0 +1,8 @@
+#!{{ lookPath "fish" }}
+
+echo -e "\033[0;32m>>>>> Begin Installing Fisher <<<<<\033[0m"
+
+if not functions -q fisher
+    # Install Fisher
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+end

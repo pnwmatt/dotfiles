@@ -14,5 +14,9 @@ README.md
 .mc/config
 {{- end }}
 {{- if .desktop  }}
-scripts
+scripts/nas_photo_sorter.sh
+scripts/zfs-inplace-rebalancing.sh
+{{- end }}
+{{- if (not .desktop)  }}
+scripts/configure_nfs_mounts.sh
 {{- end }}
