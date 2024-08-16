@@ -58,6 +58,7 @@ packages:
       - com.slack.Slack
       - dev.vencord.Vesktop
       - fr.handbrake.ghb
+      - io.github.zen_browser.zen
       - io.github.quodlibet.QuodLibet
       - io.gitlab.librewolf-community
       - io.kopia.KopiaUI
