@@ -3,6 +3,8 @@
 
 set -oue pipefail
 
+echo -e "\033[0;32m>>>>> Clone git repositories plugins <<<<<\033[0m"
+
 base_dir="{{ .chezmoi.homeDir }}/repositories"
 
 clone_repo() {
