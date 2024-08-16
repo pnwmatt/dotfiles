@@ -21,11 +21,6 @@ install_extension "gTile@vibou"
 install_extension "streamcontroller@core447.com"
 install_extension "Vitals@CoreCoding.com"
 
-if ! groups $(whoami) | grep &>/dev/null '\bdocker\b'; then
-    echo "configure docker, incus-admin, lxd, libvrt container manager permissions"
-    ujust dx-group
-fi
-
 echo "configure ptyxis transparency to 0.95"
 ujust ptyxis-transparency
 

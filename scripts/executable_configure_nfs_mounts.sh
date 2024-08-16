@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -o nounset
+set -o errexit
 
 # Check if the "--run" flag is provided
 if [[ "$1" != "--run" ]]; then
