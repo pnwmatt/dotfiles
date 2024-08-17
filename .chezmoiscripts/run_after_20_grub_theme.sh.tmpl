@@ -1,3 +1,4 @@
+{{- if .desktop -}}
 #!/usr/bin/env bash
 
 set -oue pipefail
@@ -44,3 +45,4 @@ if [ "${SHA_SOURCE}" != "${SHA_STORED}" ]; then
 
     sudo cp -r "${GRUB_THEME_SOURCE}/." "${GRUB_THEME_PATH}/${GRUB_THEME}/"
 fi
+{{- end -}}
