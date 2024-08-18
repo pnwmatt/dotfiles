@@ -87,8 +87,24 @@
     refreshPeriod = "168h"
 {{ end }}
 
+{{ if eq .chezmoi.hostname "claude-fixe" }}
+# streamdeck
+[".local/share/streamdeck/icons/lovely-streamdeck-icons"]
+    type = "archive"
+    format = "zip"
+    url = "https://github.com/Lovely-Sim-Racing/lovely-streamdeck-icons/releases/download/v1.6.1/lovely-streamdeckicons-v1.6.1-png.zip"
+    refreshPeriod = "0"
+[".local/share/streamdeck/icons/dev-streamdeck-icons"]
+    type = "archive"
+    format = "zip"
+    url = "https://github.com/daniilshat/dev-streamdeck-icons/archive/refs/tags/v1.0.0.zip"
+    refreshPeriod = "0"
+{{ end }}
+
+{{ if .server }}
 ["scripts/zfs-inplace-rebalancing.sh"]
     type = "file"
     executable = true
     url = "https://raw.githubusercontent.com/markusressel/zfs-inplace-rebalancing/master/zfs-inplace-rebalancing.sh"
     refreshPeriod = "168h"
+{{ end }}

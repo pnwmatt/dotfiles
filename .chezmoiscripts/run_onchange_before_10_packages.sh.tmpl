@@ -27,4 +27,9 @@ flatpak install -y --system \
 {{ range .packages.flatpak.desktop -}}
 {{ . }} \
 {{ end -}}
+{{ if eq .chezmoi.hostname "claude-fixe" -}}
+{{ range .packages.flatpak.streamdeck -}}
+{{ . }} \
+{{ end -}}
+{{ end -}}
 {{ end -}}
