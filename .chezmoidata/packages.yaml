@@ -30,6 +30,7 @@ packages:
       - uutils-coreutils
       - uutils-diffutils
       - uutils-findutils
+      - zellij
       - zoxide
     desktop:
       - cocogitto
