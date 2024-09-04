@@ -13,6 +13,8 @@ repositories:
     repo: ucore-custom
   - user: auricom
     repo: windmill
+  - user: cosmos
+    repo: cosmos-sdk
   - user: ngnodehq
     repo: console
   - user: ngnodehq

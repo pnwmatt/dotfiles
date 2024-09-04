@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -o errexit
+
+export GOPATH="{{ .chezmoi.homeDir }}/repositories/cosmos/cosmos-sdk/build"
+
+make -n install

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -o errexit
+
+SIMD_BIN="{{ .chezmoi.homeDir }}/repositories/cosmos/cosmos-sdk/build/simd"
+SIMD_HOME="{{ .chezmoi.homeDir }}/repositories/cosmos/cosmos-sdk/.devbox/virtenv/simd"
+
+$SIMD_BIN --home $SIMD_HOME start

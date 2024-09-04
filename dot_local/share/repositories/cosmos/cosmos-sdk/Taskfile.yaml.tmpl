@@ -1,0 +1,33 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+vars: {}
+
+dotenv: [.env]
+
+tasks:
+  default:
+    silent: true
+    cmd: task -l
+
+  init:
+    desc: Initialise project
+    cmds:
+      - {{ .chezmoi.homeDir }}/.local/share/repositories/cosmos/cosmos-sdk/tasks/init.sh
+
+  install:
+    desc: make install
+    cmds:
+      - {{ .chezmoi.homeDir }}/.local/share/repositories/cosmos/cosmos-sdk/tasks/make_install.sh
+
+  simapp-init:
+    desc: make init-simapp
+    cmds:
+      # https://raw.githubusercontent.com/cosmos/cosmos-sdk/main/scripts/init-simapp.sh
+      - {{ .chezmoi.homeDir }}/.local/share/repositories/cosmos/cosmos-sdk/tasks/simapp_init.sh
+
+  simapp-start:
+    desc: make init-simapp
+    cmds:
+      - {{ .chezmoi.homeDir }}/.local/share/repositories/cosmos/cosmos-sdk/tasks/simapp_start.sh
