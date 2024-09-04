@@ -26,6 +26,9 @@ else
     echo -e "Chezmoi | \n## No files to update without local changes"
 fi
 
+# Bat cache
+bat cache --build
+
 {{ if and .desktop .personal }}
 # Devbox
 echo "Devbox..."
