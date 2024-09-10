@@ -33,6 +33,7 @@ packages:
       - zellij
       - zoxide
     desktop:
+      - act
       - cocogitto
       - deno
       - ollama

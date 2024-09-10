@@ -2,6 +2,10 @@ status --is-interactive; and begin
     set fish_greeting # Disable greeting
 
     # Initialize utilities if available
+    if type -q act
+        abbr --add --global -- actt='act -s GITHUB_TOKEN="$(gh auth token)"'
+    end
+
     if type -q atuin
         atuin init fish --disable-up-arrow | source
     end
