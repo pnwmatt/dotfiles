@@ -4,8 +4,8 @@ set -o errexit
 
 # https://raw.githubusercontent.com/cosmos/cosmos-sdk/main/scripts/init-simapp.sh
 
-SIMD_BIN="{{ .chezmoi.homeDir }}/repositories/cosmos/cosmos-sdk/build/simd"
-SIMD_HOME="{{ .chezmoi.homeDir }}/repositories/cosmos/cosmos-sdk/.devbox/virtenv/simd"
+SIMD_BIN="${DEVBOX_PROJECT_ROOT}/build/simd"
+SIMD_HOME="${DEVBOX_PROJECT_ROOT}/.devbox/virtenv/simd"
 
 if [ -z "$SIMD_BIN" ]; then echo "SIMD_BIN is not set. Make sure to run 'make install' before"; exit 1; fi
 if [ -d "$SIMD_HOME" ]; then rm -rv $SIMD_HOME; fi

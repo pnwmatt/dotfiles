@@ -9,12 +9,11 @@
     "jq@latest"
   ],
   "env": {
-    "DEVBOX_COREPACK_ENABLED": "true",
-    "GOPATH":                  "/var/home/claude/repositories/cosmos/cosmos-sdk/build"
+    "DEVBOX_COREPACK_ENABLED": "true"
   },
   "shell": {
     "init_hook": [
-      "task init"
+      "export GOPATH $DEVBOX_PROJECT_ROOT/build"
     ],
     "scripts": {
       "test":       "cargo test -- --show-output",

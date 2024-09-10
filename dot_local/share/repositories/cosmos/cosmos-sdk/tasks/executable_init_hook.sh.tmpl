@@ -2,8 +2,8 @@
 
 set -o errexit
 
-projectDir="{{ .chezmoi.homeDir }}/repositories/cosmos/cosmos-sdk/.devbox"
-rustupHomeDir=$projectDir/.rustup
+projectDir="${DEVBOX_PROJECT_ROOT}/.devbox"
+rustupHomeDir="$projectDir/.rustup"
 mkdir -p $rustupHomeDir
 export RUSTUP_HOME=$rustupHomeDir
 export LIBRARY_PATH=$LIBRARY_PATH:"$projectDir/nix/profile/default/lib"
