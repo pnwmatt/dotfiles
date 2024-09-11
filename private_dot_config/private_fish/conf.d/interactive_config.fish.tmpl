@@ -3,7 +3,7 @@ status --is-interactive; and begin
 
     # Initialize utilities if available
     if type -q act
-        abbr --add --global -- actt='act -s GITHUB_TOKEN="$(gh auth token)"'
+        abbr --add --global -- actt 'act -s GITHUB_TOKEN="$(gh auth token)"'
     end
 
     if type -q atuin
