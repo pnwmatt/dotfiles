@@ -54,6 +54,7 @@ create_symlink() {
 echo -e "\033[0;32m>>>>> Configure cosmos git repositories <<<<<\033[0m"
 
 
+git_local_exclude_append "cosmos/cosmos-sdk" ".envrc"
 git_local_exclude_append "cosmos/cosmos-sdk" "devbox.json"
 git_local_exclude_append "cosmos/cosmos-sdk" "devbox.lock"
 git_local_exclude_append "cosmos/cosmos-sdk" "Taskfile.yaml"
