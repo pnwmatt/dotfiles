@@ -1,0 +1,23 @@
+{{- if and .desktop -}}
+#!/usr/bin/env bash
+
+# apps.ini: {{ include "dot_local/share/distrobox/apps.ini" | sha256sum }}
+
+INI_FILE="{{ .chezmoi.homeDir }}/.local/share/distrobox/apps.ini"
+
+# Function to extract section names from the INI file
+get_section_names() {
+    grep '^\[.*\]$' "$INI_FILE" | sed 's/^\[\(.*\)\]$/\1/'
+}
+
+# Main execution
+if [ -f "$INI_FILE" ]; then
+    while IFS= read -r section; do
+        echo "Creating distrobox for section: $section"
+        distrobox assemble create --replace --file "$INI_FILE" --name "$section"
+    done < <(get_section_names)
+else
+    echo "Error: INI file not found at $INI_FILE"
+    exit 1
+fi
+{{- end -}}
