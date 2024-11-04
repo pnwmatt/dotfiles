@@ -38,16 +38,15 @@
 {{- if $interactive -}}
 {{-   writeToStdout "💡 Tip: you can re-enter your data with `chezmoi init --data=false`.\n" -}}
 {{- end -}}
-
-[data]
-  gnome = {{ $gnome }}
-  personal = {{ $personal }}
-  desktop = {{ $desktop }}
-  server = {{ $server }}
-
 encryption = "age"
 {{- if $personal }}
 [age]
   identity = "{{ .chezmoi.homeDir }}/.config/sops/age/chezmoi.txt"
   recipient = "age19kk2hhldesux98t50r9wmdhdvj7xw29205gy58tj70m53p5dweksv70uh9"
 {{- end }}
+
+[data]
+  gnome = {{ $gnome }}
+  personal = {{ $personal }}
+  desktop = {{ $desktop }}
+  server = {{ $server }}

@@ -9,6 +9,8 @@ README.md
 .config/sops/
 .config/topgrade.d
 .local/bin/
+.local/share/icons/distrobox/fedora.png
+.local/share/icons/distrobox/ubuntu.png
 .kube/config
 .talos/config
 .mc/config

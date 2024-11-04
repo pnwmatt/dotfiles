@@ -19,8 +19,8 @@ FILES=$(chezmoi status | awk '/^ / {print $2}')
 if [ -n "$FILES" ]; then
     echo -e "Chezmoi | \n## Updating files without local changes"
     for f in $FILES; do
-        echo "... $f"
-        chezmoi apply ~/"$f"
+        echo "... ${f}"
+        chezmoi apply "~/${f}"
     done
 else
     echo -e "Chezmoi | \n## No files to update without local changes"
