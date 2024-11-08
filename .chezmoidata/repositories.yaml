@@ -13,10 +13,10 @@ repositories:
     repo: ucore-custom
   - user: auricom
     repo: windmill
+  - user: 01builders
+    repo: infra
   - user: cosmos
     repo: cosmos-sdk
-  - user: cosmos
-    repo: infra
   - user: cosmos
     repo: nightly-stack
   - user: ngnodehq
