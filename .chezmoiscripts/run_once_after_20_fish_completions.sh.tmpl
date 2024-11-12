@@ -41,6 +41,11 @@ if type -q helm
     helm completion fish > $__fish_config_dir/completions/helm.fish
 end
 
+if type -q tailscale
+    echo "setting up tailscale completion"
+    tailscale completion fish > $__fish_config_dir/completions/tailscale.fish
+end
+
 if type -q talosctl
     echo "setting up talosctl completion"
     talosctl completion fish > $__fish_config_dir/completions/talosctl.fish
