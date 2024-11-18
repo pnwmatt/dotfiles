@@ -12,7 +12,7 @@ fi
 NFS_SERVER_IP="192.168.9.10"
 SHARE_PREFIX="/var/mnt/vol1"
 MOUNTPOINT_PREFIX="/var/mnt/storage.feisar.ovh"
-OPTS="nfsvers=4,soft,timeo=150,retrans=10,_netdev,bg"
+OPTS="soft,timeo=150,retrans=10,_netdev,nofail,x-systemd.automount,rw"
 
 should_backup=true
 
@@ -46,7 +46,7 @@ add_fstab_entry() {
     fi
 }
 
-add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/apps" "${MOUNTPOINT_PREFIX}/apps" "${OPTS}" 0 0
+add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/apps/frigate" "${MOUNTPOINT_PREFIX}/apps-frigate" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/photo" "${MOUNTPOINT_PREFIX}/photo" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/video" "${MOUNTPOINT_PREFIX}/video" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/shared-documents" "${MOUNTPOINT_PREFIX}/shared-documents" "${OPTS}" 0 0
