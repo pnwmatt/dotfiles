@@ -71,9 +71,11 @@ status --is-interactive; and begin
         abbr --add --global -- gs 'git status --short'
     end
 
-    set HB_CNF_HANDLER (brew --repository)"/Library/Taps/homebrew/homebrew-command-not-found/handler.fish"
-    if test -f $HB_CNF_HANDLER
-        source $HB_CNF_HANDLER
+    if type -q brew
+        set HB_CNF_HANDLER (brew --repository)"/Library/Taps/homebrew/homebrew-command-not-found/handler.fish"
+        if test -f $HB_CNF_HANDLER
+            source $HB_CNF_HANDLER
+        end
     end
 
     if type -q kubectl
