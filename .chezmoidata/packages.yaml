@@ -41,6 +41,8 @@ packages:
       - tig
       - yt-dlp
       # home-ops
+      - helm
+      - helmfile
       - k9s
       - kubectl
       - kubectx
