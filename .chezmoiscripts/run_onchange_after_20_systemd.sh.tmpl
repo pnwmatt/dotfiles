@@ -13,6 +13,9 @@ echo -e "\033[0;32m>>>>> Reload systemctl for quadlets and systemd units <<<<<\0
 # tdarr-node: {{ include "private_dot_config/private_containers/systemd/tdarr-node.container.tmpl" | sha256sum }}
 {{ end }}
 # ublue_update_custom: {{ include "private_dot_config/private_systemd/user/ublue-update-custom.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/ublue-update-custom.timer.tmpl" | sha256sum }}
+{{ if eq .chezmoi.hostname "storage.feisar.ovh" }}
+# nas_photo_sorter: {{ include "private_dot_config/private_systemd/user/nas-photo-sorter.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/nas-photo-sorter.timer.tmpl" | sha256sum }}
+{{ end }}
 
 systemctl --user daemon-reload
 systemctl --user enable ublue-update-custom.timer
