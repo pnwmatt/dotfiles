@@ -17,6 +17,8 @@ repositories:
     repo: infra
   - user: 01builders
     repo: infra_libs
+  - user: 01builders
+    repo: raas-poc
   - user: cosmos
     repo: cosmos-sdk
   - user: cosmos
