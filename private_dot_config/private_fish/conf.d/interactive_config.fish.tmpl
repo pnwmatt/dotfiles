@@ -15,11 +15,6 @@ status --is-interactive; and begin
         set -x BAT_THEME "Catppuccin Mocha"
     end
 
-    if type -q deno
-        set -gx PATH  $PATH {{ .chezmoi.homeDir }}/.deno/bin
-        source ({{ .chezmoi.homeDir }}/.deno/bin/wmill completions fish | psub)
-    end
-
     if type -q direnv
         direnv hook fish | source
     end

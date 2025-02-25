@@ -50,7 +50,6 @@ add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/apps/frigate" "${MOUNTPOINT_PR
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/photo" "${MOUNTPOINT_PREFIX}/photo" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/video" "${MOUNTPOINT_PREFIX}/video" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/shared-documents" "${MOUNTPOINT_PREFIX}/shared-documents" "${OPTS}" 0 0
-add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/backups" "${MOUNTPOINT_PREFIX}/backups" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/music_transcoded" "${MOUNTPOINT_PREFIX}/music_transcoded" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/downloads" "${MOUNTPOINT_PREFIX}/downloads" "${OPTS}" 0 0
 add_fstab_entry "${NFS_SERVER_IP}:${SHARE_PREFIX}/home/helene" "${MOUNTPOINT_PREFIX}/home-helene" "${OPTS}" 0 0
