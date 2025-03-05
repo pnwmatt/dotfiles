@@ -61,6 +61,7 @@ packages:
       - com.slack.Slack
       - dev.vencord.Vesktop
       - fr.handbrake.ghb
+      - info.portfolio_performance.PortfolioPerformance
       - io.github.zen_browser.zen
       - io.github.quodlibet.QuodLibet
       - io.kopia.KopiaUI
