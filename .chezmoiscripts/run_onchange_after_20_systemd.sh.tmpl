@@ -4,6 +4,8 @@ set -oue pipefail
 
 echo -e "\033[0;32m>>>>> Reload systemctl for quadlets and systemd units <<<<<\033[0m"
 
+systemctl --user daemon-reload
+
 # This script will run whenever there's an update in .config/containers/systemd/* or .config/systemd/user/*
 {{ if and .desktop .personal }}
 # resilio-sync hash: {{ include "private_dot_config/private_containers/systemd/resilio-sync.container.tmpl" | sha256sum }}
@@ -15,8 +17,9 @@ echo -e "\033[0;32m>>>>> Reload systemctl for quadlets and systemd units <<<<<\0
 # ublue_update_custom: {{ include "private_dot_config/private_systemd/user/ublue-update-custom.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/ublue-update-custom.timer.tmpl" | sha256sum }}
 {{ if eq .chezmoi.hostname "storage.feisar.ovh" }}
 # nas_photo_sorter: {{ include "private_dot_config/private_systemd/user/nas-photo-sorter.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/nas-photo-sorter.timer.tmpl" | sha256sum }}
+systemctl --user enable nas-photo-sorter.timer
+systemctl --user start nas-photo-sorter.timer
 {{ end }}
 
-systemctl --user daemon-reload
 systemctl --user enable ublue-update-custom.timer
-
+systemctl --user start ublue-update-custom.timer
