@@ -9,3 +9,6 @@ ConditionPathExists=/var/mnt/vol1/photo
 Type=oneshot
 ExecStart=/usr/bin/bash -c "%h/scripts/nas_photo_sorter.sh"
 Environment="PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+[Install]
+WantedBy=default.target
