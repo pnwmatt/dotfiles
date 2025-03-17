@@ -35,7 +35,6 @@ packages:
     desktop:
       - act
       - cocogitto
-      - ollama
       - pre-commit
       - tig
       - yt-dlp
