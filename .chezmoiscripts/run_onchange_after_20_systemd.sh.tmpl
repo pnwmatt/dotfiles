@@ -15,11 +15,6 @@ systemctl --user daemon-reload
 # tdarr-node: {{ include "private_dot_config/private_containers/systemd/tdarr-node.container.tmpl" | sha256sum }}
 {{ end }}
 # ublue_update_custom: {{ include "private_dot_config/private_systemd/user/ublue-update-custom.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/ublue-update-custom.timer.tmpl" | sha256sum }}
-{{ if eq .chezmoi.hostname "storage.feisar.ovh" }}
-# nas_photo_sorter: {{ include "private_dot_config/private_systemd/user/nas-photo-sorter.service.tmpl" | sha256sum }} {{ include "private_dot_config/private_systemd/user/nas-photo-sorter.timer.tmpl" | sha256sum }}
-systemctl --user enable nas-photo-sorter.timer
-systemctl --user start nas-photo-sorter.timer
-{{ end }}
 
 systemctl --user enable ublue-update-custom.timer
 systemctl --user start ublue-update-custom.timer
