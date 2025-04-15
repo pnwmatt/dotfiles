@@ -78,6 +78,10 @@ status --is-interactive; and begin
         abbr --add --global -- kdpf 'kubectl delete pod --force --grace-period 0'
     end
 
+    if type -q ramalama
+        abbr --add --global -- rmlmc 'ramalama serve huggingface://bartowski/Rombo-Org_Rombo-LLM-V3.1-QWQ-32b-GGUF/Rombo-Org_Rombo-LLM-V3.1-QWQ-32b-Q6_K_L.gguf'
+    end
+
     if type -q rg
         alias grep='rg' 2>/dev/null
         alias egrep='rg' 2>/dev/null
