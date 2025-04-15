@@ -11,7 +11,7 @@ brew update
 brew tap {{ . }}
 {{ end -}}
 {{ end -}}
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.brew.common -}}
 brew {{ . | quote }}
 {{ end -}}
