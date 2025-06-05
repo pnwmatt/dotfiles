@@ -64,6 +64,7 @@ packages:
       - info.portfolio_performance.PortfolioPerformance
       - io.github.zen_browser.zen
       - io.github.quodlibet.QuodLibet
+      - io.kopia.KopiaUI
       - me.timschneeberger.GalaxyBudsClient
       - net.cozic.joplin_desktop
       - org.bunkus.mkvtoolnix-gui
