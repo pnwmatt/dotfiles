@@ -35,3 +35,5 @@ repositories:
     repo: landing-page
   - user: ngnodehq
     repo: renovate-config
+  - user: rollkit
+    repo: rollkit
