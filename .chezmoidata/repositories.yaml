@@ -19,11 +19,6 @@ repositories:
     repo: infra_libs
   - user: 01builders
     repo: raas-poc
-  - user: cosmos
-    repo: cosmos-sdk
-  - user: cosmos
-    repo: infra
-  - user: cosmos
     repo: nightly-stack
   - user: ngnodehq
     repo: console
