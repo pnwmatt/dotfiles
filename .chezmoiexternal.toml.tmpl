@@ -114,7 +114,7 @@
     refreshPeriod = "0"
 {{ end }}
 
-{{ if .server }}
+{{ if not .desktop }}
 ["scripts/zfs-inplace-rebalancing.sh"]
     type = "file"
     executable = true

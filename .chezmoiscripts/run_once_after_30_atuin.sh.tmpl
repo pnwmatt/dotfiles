@@ -1,7 +1,39 @@
 #!/usr/bin/env bash
 
-set -oue pipefail
+# Atuin configuration script
+# Sets up Atuin shell history synchronization
 
-echo -e "\033[0;32m>>>>> Begin Atuin Configuration <<<<<\033[0m"
+set -euo pipefail
 
-atuin login
+# Source utility functions
+source "{{ .chezmoi.homeDir }}/scripts/lib/chezmoi_utils.sh"
+
+main() {
+    log_section "Configuring Atuin"
+
+    if ! command_exists atuin; then
+        log_warn "Atuin is not installed, skipping configuration"
+        return
+    fi
+
+    # Check if already logged in
+    if atuin status >/dev/null 2>&1; then
+        log_info "Atuin is already configured and logged in"
+        return
+    fi
+
+    log_info "Starting Atuin login process"
+    log_info "Please follow the prompts to log in to Atuin"
+
+    # Interactive login
+    if atuin login; then
+        log_info "Atuin login completed successfully"
+    else
+        log_warn "Atuin login failed or was cancelled"
+    fi
+
+    log_info "Atuin configuration completed"
+}
+
+# Run main function
+main "$@"

@@ -2,51 +2,21 @@
 {{- $interactive := stdinIsATTY -}}
 
 {{- /* Template file for chezmoi config file */ -}}
-{{- $gnome := false -}}{{/* true if this machine is using gnome */}}
-{{- $personal := false -}}{{/* true if this machine is personal */}}
 {{- $desktop := false -}}{{/* true if this machine is a desktop */}}
-{{- $server := false -}}{{/* true if this machine is a server */}}
-{{- $headless := false -}}{{/* true if this machine is personal */}}
 
-
-{{- if hasKey . "gnome" -}}
-{{-   $gnome = .gnome -}}
-{{- else if $interactive -}}
-{{-   $gnome = promptBool "gnome" -}}
-{{- end -}}
-{{- if hasKey . "personal" -}}
-{{-   $personal = .personal -}}
-{{- else if $interactive -}}
-{{-   $personal = promptBool "personal" -}}
-{{- end -}}
 {{- if hasKey . "desktop" -}}
 {{-   $desktop = .desktop -}}
 {{- else if $interactive -}}
 {{-   $desktop = promptBool "desktop" -}}
-{{- end -}}
-{{- if hasKey . "server" -}}
-{{-   $server = .server -}}
-{{- else if $interactive -}}
-{{-   $server = promptBool "server" -}}
-{{- end -}}
-{{- if hasKey . "headless" -}}
-{{-   $headless = .headless -}}
-{{- else if $interactive -}}
-{{-   $headless = promptBool "headless" -}}
 {{- end -}}
 
 {{- if $interactive -}}
 {{-   writeToStdout "💡 Tip: you can re-enter your data with `chezmoi init --data=false`.\n" -}}
 {{- end -}}
 encryption = "age"
-{{- if $personal }}
 [age]
   identity = "{{ .chezmoi.homeDir }}/.config/sops/age/chezmoi.txt"
   recipient = "age19kk2hhldesux98t50r9wmdhdvj7xw29205gy58tj70m53p5dweksv70uh9"
-{{- end }}
 
 [data]
-  gnome = {{ $gnome }}
-  personal = {{ $personal }}
   desktop = {{ $desktop }}
-  server = {{ $server }}

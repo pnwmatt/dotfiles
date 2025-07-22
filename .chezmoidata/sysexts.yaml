@@ -1,0 +1,4 @@
+sysexts:
+  desktop:
+    extensions.fcos.fr/extensions:
+      - 1password-gui

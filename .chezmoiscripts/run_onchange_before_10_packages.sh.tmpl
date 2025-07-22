@@ -1,35 +1,75 @@
 #!/usr/bin/env bash
 
-set -oue pipefail
+# Package installation script
+# This script installs packages via Homebrew and Flatpak
+# Hash dependencies: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
 
-echo -e "\033[0;32m>>>>> Begin Installing Brew & flatpack packages <<<<<\033[0m"
+set -euo pipefail
 
-brew update
+# Source utility functions
+source "{{ .chezmoi.homeDir }}/scripts/lib/chezmoi_utils.sh"
 
-{{ if .desktop -}}
-{{ range .packages.taps.desktop -}}
-brew tap {{ . }}
-{{ end -}}
-{{ end -}}
-brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.brew.common -}}
+main() {
+    log_section "Installing Brew & Flatpak packages"
+
+    # Validate Homebrew is available
+    if ! command_exists brew; then
+        log_error "Homebrew is not installed"
+        exit 1
+    fi
+
+    # Update Homebrew
+    log_info "Updating Homebrew"
+    brew update
+
+    # Add taps
+    {{- if .desktop }}
+    {{- range .packages.taps.desktop }}
+    log_info "Adding Homebrew tap: {{ . }}"
+    brew tap {{ . }}
+    {{- end }}
+    {{- end }}
+
+    # Install packages via Homebrew
+    log_info "Installing Homebrew packages"
+    brew bundle --file=/dev/stdin <<EOF
+{{- range .packages.brew.common }}
 brew {{ . | quote }}
-{{ end -}}
-{{ if .desktop -}}
-{{ range .packages.brew.desktop -}}
+{{- end }}
+{{- if .desktop }}
+{{- range .packages.brew.desktop }}
 brew {{ . | quote }}
-{{ end -}}
-{{ end -}}
+{{- end }}
+{{- end }}
 EOF
 
-{{ if .desktop -}}
-flatpak install -y --system \
-{{ range .packages.flatpak.desktop -}}
-{{ . }} \
-{{ end -}}
-{{ if eq .chezmoi.hostname "claude-fixe" -}}
-{{ range .packages.flatpak.streamdeck -}}
-{{ . }} \
-{{ end -}}
-{{ end -}}
-{{ end -}}
+    # Install Flatpak packages (desktop only)
+    {{- if .desktop }}
+    if command_exists flatpak; then
+        log_info "Installing Flatpak packages"
+
+        # Common desktop packages
+        {{- range .packages.flatpak.desktop }}
+        flatpak_install_if_missing "{{ . }}"
+        {{- end }}
+
+        # Stream Deck specific packages
+        {{- if eq .chezmoi.hostname "claude-fixe" }}
+        {{- range .packages.flatpak.streamdeck }}
+        flatpak_install_if_missing "{{ . }}"
+        {{- end }}
+        {{- end }}
+    else
+        log_warn "Flatpak not available, skipping Flatpak packages"
+    fi
+    {{- end }}
+
+    log_info "Package installation completed"
+}
+
+# Only run if conditions are met
+if should_run; then
+    main "$@"
+else
+    log_debug "Skipping package installation"
+fi

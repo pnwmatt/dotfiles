@@ -29,12 +29,6 @@ fi
 # Bat cache
 bat cache --build
 
-{{ if and .desktop .personal }}
-# Devbox
-echo "Devbox..."
-/usr/bin/devbox version update
-{{ end }}
-
 # Fish completion
 echo "Fish completion..."
 /usr/bin/fish -c "{{ .chezmoi.homeDir }}/.local/share/chezmoi/.chezmoiscripts/run_once_after_20_fish_completions.sh.tmpl"

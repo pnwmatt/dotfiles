@@ -1,0 +1,33 @@
+{{- if .desktop -}}
+#!/usr/bin/env bash
+
+# NFS mounts configuration script
+# Configures NFS mounts using external script
+
+set -euo pipefail
+
+# Source utility functions
+source "{{ .chezmoi.homeDir }}/scripts/lib/chezmoi_utils.sh"
+
+# Hash dependency for change detection
+# configure_nfs_mounts.sh hash: {{ include "scripts/executable_configure_nfs_mounts.sh" | sha256sum }}
+
+main() {
+    log_section "Configuring NFS mounts"
+
+    local nfs_script="{{ .chezmoi.homeDir }}/scripts/configure_nfs_mounts.sh"
+
+    if [[ ! -x "$nfs_script" ]]; then
+        log_error "NFS configuration script not found or not executable: $nfs_script"
+        exit 1
+    fi
+
+    log_info "Running NFS configuration script"
+    "$nfs_script" --run
+
+    log_info "NFS mounts configuration completed"
+}
+
+# Run main function
+main "$@"
+{{- end -}}

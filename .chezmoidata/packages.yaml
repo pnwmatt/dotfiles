@@ -1,3 +1,6 @@
+#comictagger
+#k8slens
+#ledger
 packages:
   taps:
     desktop:
@@ -11,7 +14,6 @@ packages:
       - bat
       - btop
       - chezmoi
-      - direnv
       - duf
       - dust
       - dysk
@@ -21,11 +23,9 @@ packages:
       - fzf
       - gawk
       - go-task
-      - helix
+      - mise
       - nmap
-      - rclone
       - ripgrep
-      - sops
       - starship
       - thefuck
       - uutils-coreutils
@@ -54,6 +54,7 @@ packages:
   flatpak:
     desktop:
       # apps
+      - app.zen_browser.zen
       - com.calibre_ebook.calibre
       - com.github.rafostar.Clapper
       - com.github.PintaProject.Pinta
@@ -62,7 +63,6 @@ packages:
       - dev.vencord.Vesktop
       - fr.handbrake.ghb
       - info.portfolio_performance.PortfolioPerformance
-      - io.github.zen_browser.zen
       - io.github.quodlibet.QuodLibet
       - io.kopia.KopiaUI
       - me.timschneeberger.GalaxyBudsClient
