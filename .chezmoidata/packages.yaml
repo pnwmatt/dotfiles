@@ -3,77 +3,38 @@
 #ledger
 packages:
   taps:
-    desktop:
-      - fluxcd/tap
-      - homebrew/command-not-found
-      - siderolabs/tap
   brew:
-    common:
-      - age
-      - atuin
-      - bat
-      - btop
-      - chezmoi
-      - duf
-      - dust
-      - dysk
-      - exiftool
-      - eza
-      - fd
-      - fzf
-      - gawk
-      - go-task
-      - mise
-      - nmap
-      - ripgrep
-      - starship
-      - thefuck
-      - uutils-coreutils
-      - uutils-diffutils
-      - uutils-findutils
-      - zellij
-      - zoxide
-    desktop:
-      - act
-      - cocogitto
-      - pre-commit
-      - tig
-      - yt-dlp
-      # home-ops
-      - helm
-      - helmfile
-      - k9s
-      - kubectl
-      - kubectx
-      - krew
-      - kustomize
-      - fluxcd/tap/flux
-      - minio-mc
-      - siderolabs/tap/talosctl
-      - talhelper
+    - atuin
+    - chezmoi
+    - dysk
+    - mise
+    - nmap
+    - thefuck
+    - uutils-coreutils
+    - uutils-diffutils
+    - uutils-findutils
   flatpak:
-    desktop:
-      # apps
-      - app.zen_browser.zen
-      - com.calibre_ebook.calibre
-      - com.github.rafostar.Clapper
-      - com.github.PintaProject.Pinta
-      - com.logseq.Logseq
-      - com.slack.Slack
-      - dev.vencord.Vesktop
-      - fr.handbrake.ghb
-      - info.portfolio_performance.PortfolioPerformance
-      - io.github.quodlibet.QuodLibet
-      - io.kopia.KopiaUI
-      - me.timschneeberger.GalaxyBudsClient
-      - net.cozic.joplin_desktop
-      - org.bunkus.mkvtoolnix-gui
-      - org.chromium.Chromium
-      - org.musicbrainz.Picard
-      # games
-      - org.freedesktop.Platform.VulkanLayer.gamescope//23.08
-      - org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
-      - com.github.Matoking.protontricks
-      - com.valvesoftware.Steam
-    streamdeck:
-      - com.core447.StreamController
+    # apps
+    - app.zen_browser.zen
+    - com.calibre_ebook.calibre
+    - com.github.rafostar.Clapper
+    - com.github.PintaProject.Pinta
+    - com.logseq.Logseq
+    - com.slack.Slack
+    - dev.vencord.Vesktop
+    - fr.handbrake.ghb
+    - info.portfolio_performance.PortfolioPerformance
+    - io.github.quodlibet.QuodLibet
+    - io.kopia.KopiaUI
+    - me.timschneeberger.GalaxyBudsClient
+    - net.cozic.joplin_desktop
+    - org.bunkus.mkvtoolnix-gui
+    - org.chromium.Chromium
+    - org.musicbrainz.Picard
+    # games
+    - org.freedesktop.Platform.VulkanLayer.gamescope//23.08
+    - org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
+    - com.github.Matoking.protontricks
+    - com.valvesoftware.Steam
+  flatpak_streamdeck:
+    - com.core447.StreamController

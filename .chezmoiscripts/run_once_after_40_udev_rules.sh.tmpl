@@ -11,8 +11,10 @@ source "{{ .chezmoi.homeDir }}/scripts/lib/chezmoi_utils.sh"
 main() {
     log_section "Installing hardware udev rules"
 
+    {{- if eq .chezmoi.hostname "claude-fixe" }}
     # Install StreamDeck udev rules
     install_streamdeck_rules
+    {{- end }}
 
     # Install Ledger udev rules
     install_ledger_rules

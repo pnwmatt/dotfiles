@@ -1,3 +1,4 @@
+{{- if .desktop -}}
 #!/usr/bin/env bash
 
 # Package installation script
@@ -23,46 +24,37 @@ main() {
     brew update
 
     # Add taps
-    {{- if .desktop }}
-    {{- range .packages.taps.desktop }}
+    {{- range .packages.taps }}
     log_info "Adding Homebrew tap: {{ . }}"
     brew tap {{ . }}
-    {{- end }}
     {{- end }}
 
     # Install packages via Homebrew
     log_info "Installing Homebrew packages"
     brew bundle --file=/dev/stdin <<EOF
-{{- range .packages.brew.common }}
+{{- range .packages.brew }}
 brew {{ . | quote }}
-{{- end }}
-{{- if .desktop }}
-{{- range .packages.brew.desktop }}
-brew {{ . | quote }}
-{{- end }}
 {{- end }}
 EOF
 
-    # Install Flatpak packages (desktop only)
-    {{- if .desktop }}
+    # Install Flatpak packages
     if command_exists flatpak; then
         log_info "Installing Flatpak packages"
 
         # Common desktop packages
-        {{- range .packages.flatpak.desktop }}
+        {{- range .packages.flatpak }}
         flatpak_install_if_missing "{{ . }}"
         {{- end }}
 
         # Stream Deck specific packages
         {{- if eq .chezmoi.hostname "claude-fixe" }}
-        {{- range .packages.flatpak.streamdeck }}
+        {{- range .packages.flatpak_streamdeck }}
         flatpak_install_if_missing "{{ . }}"
         {{- end }}
         {{- end }}
     else
         log_warn "Flatpak not available, skipping Flatpak packages"
     fi
-    {{- end }}
 
     log_info "Package installation completed"
 }
@@ -73,3 +65,4 @@ if should_run; then
 else
     log_debug "Skipping package installation"
 fi
+{{- end -}}

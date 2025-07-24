@@ -8,9 +8,7 @@ repositories:
   - user: auricom
     repo: toolboxes
   - user: auricom
-    repo: ublue-custom
-  - user: auricom
-    repo: ucore-custom
+    repo: cayo-storage
   - user: auricom
     repo: orches-storage
   - user: 01builders
