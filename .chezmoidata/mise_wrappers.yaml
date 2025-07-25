@@ -1,2 +1,4 @@
 mise_wrappers:
+  - age
   - node
+  - sops
