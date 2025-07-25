@@ -10,6 +10,8 @@ repositories:
   - user: auricom
     repo: cayo-storage
   - user: auricom
+    repo: cayo-sysexts
+  - user: auricom
     repo: orches-storage
   - user: 01builders
     repo: infra
@@ -27,13 +29,13 @@ repositories:
     repo: landing-page
   - user: ngnodehq
     repo: renovate-config
-  - user: rollkit
+  - user: evstack
     repo: docs
-  - user: rollkit
+  - user: evstack
     repo: lumen
-  - user: rollkit
-    repo: rollkit
-  - user: rollkit
+  - user: evstack
+    repo: ev-toolbox
+  - user: evstack
     repo: lumen
-  - user: rollkit
-    repo: ops-toolbox
+  - user: evstack
+    repo: ev-node
