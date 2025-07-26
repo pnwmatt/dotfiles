@@ -1,3 +1,4 @@
+{{- if .desktop -}}
 #!/usr/bin/env bash
 
 # Hardware udev rules installation script
@@ -75,3 +76,4 @@ reload_udev_rules() {
 
 # Run main function
 main "$@"
+{{- end -}}
