@@ -1,6 +1,8 @@
-#comictagger
-#k8slens
-#ledger
+appimages:
+  - comictagger
+  - k8slens
+  - ledger-live
+  - lmstudio
 packages:
   taps:
   brew:
