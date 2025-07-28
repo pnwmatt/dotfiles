@@ -1,3 +1,6 @@
 {{- if (not .workstation) }}
 {{- else }}
 {{- end }}
+
+README.md
+LICENSE
