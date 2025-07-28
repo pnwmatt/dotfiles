@@ -1,4 +1,3 @@
 {{- if (not .workstation) }}
-{{- end }}
-{{- if .workstation}}
+{{- else }}
 {{- end }}

@@ -12,7 +12,7 @@
 {{- end -}}
 
 {{- if hasKey . "workstation" -}}
-{{-   if haskey . "headless" -}}
+{{-   if hasKey . "headless" -}}
 {{-     $headless = .headless -}}
 {{-   else if $interactive -}}
 {{-     $headless = promptbool "headless" -}}
