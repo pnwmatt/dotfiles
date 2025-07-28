@@ -8,14 +8,14 @@
 {{- if hasKey . "workstation" -}}
 {{-   $workstation = .workstation -}}
 {{- else if $interactive -}}
-{{-   $workstation = promptbool "workstation" -}}
+{{-   $workstation = promptBool "workstation" -}}
 {{- end -}}
 
 {{- if hasKey . "workstation" -}}
 {{-   if hasKey . "headless" -}}
 {{-     $headless = .headless -}}
 {{-   else if $interactive -}}
-{{-     $headless = promptbool "headless" -}}
+{{-     $headless = promptBool "headless" -}}
 {{-   end -}}
 {{- end -}}
 
