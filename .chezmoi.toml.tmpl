@@ -3,17 +3,21 @@
 
 {{- /* Template file for chezmoi config file */ -}}
 {{- $workstation := false -}}{{/* true if this machine is a desktop/workstation */}}
+{{- $headless := false -}}
 
-{{- if hasKey . "workstation" -}}
+{{- if haskey . "workstation" -}}
 {{-   $workstation = .workstation -}}
 {{- else if $interactive -}}
-{{-   $workstation = promptBool "workstation" -}}
+{{-   $workstation = promptbool "workstation" -}}
 {{- end -}}
 
-{{- if $interactive -}}
-{{-   writeToStdout "💡 Tip: you can re-enter your data with `chezmoi init --data=false`.\n" -}}
+{{- if hasKey . "workstation" -}}
+{{-   if haskey . "headless" -}}
+{{-     $headless = .headless -}}
+{{-   else if $interactive -}}
+{{-     $headless = promptbool "headless" -}}
+{{-   end -}}
 {{- end -}}
-
 
 {{- if false -}}
 encryption = "age"
@@ -24,4 +28,5 @@ encryption = "age"
 {{-   writeToStdout "Encryption in chezmoi is currently disabled!"
 {{- end -}}
 [data]
-  workstation = {{ workstation }}
+  workstation = {{ $workstation }}
+  headless = {{ $headless }}

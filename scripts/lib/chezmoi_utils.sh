@@ -3,6 +3,7 @@
 # Chezmoi utility functions library
 # This file provides common functions for chezmoi scripts
 
+# https://explainshell.com/explain?cmd=set+-euo+pipefail
 set -euo pipefail
 
 # Color codes for output

@@ -25,16 +25,3 @@ if [ -n "$FILES" ]; then
 else
     echo -e "Chezmoi | \n## No files to update without local changes"
 fi
-
-# Bat cache
-bat cache --build
-
-# Fish completion
-echo "Fish completion..."
-fish -c "{{ .chezmoi.homeDir }}/scripts/fish_plugins_completion.fish"
-
-# Fisher plugins
-fish -c "source {{ .chezmoi.homeDir }}/.config/fish/functions/fisher.fish; fisher update"
-
-# Mise
-mise upgrade

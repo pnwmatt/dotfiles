@@ -17,6 +17,13 @@ brew install chezmoi
 chezmoi init --apply --ssh pnwmatt
 ```
 
+## Notes
+* All chezmoi commands accept the -v (verbose) flag to print out exactly what changes they will make to the file system, and the -n (dry run) flag to not make any actual changes. The combination -n -v is very useful if you want to see exactly what changes would be made.
+* `chezmoi <edit|add|diff|apply>` standard flow
+  * `update` pull latest changes from the remote repository
+  * `<managed|unmanaged>` to see everything (not) managed by chezmoi.
+* You don't need to `edit` .dotfiles in 
+
 ## 📄 License
 
 [Unlicence](https://github.com/pnwmatt/dotfiles/blob/main/LICENSE)

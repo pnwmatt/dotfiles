@@ -1,4 +1,4 @@
-{{- if .desktop -}}
+{{- if .workstation -}}
 #!/usr/bin/env bash
 
 # Package installation script
@@ -46,12 +46,6 @@ EOF
         flatpak_install_if_missing "{{ . }}"
         {{- end }}
 
-        # Stream Deck specific packages
-        {{- if eq .chezmoi.hostname "claude-fixe" }}
-        {{- range .packages.flatpak_streamdeck }}
-        flatpak_install_if_missing "{{ . }}"
-        {{- end }}
-        {{- end }}
     else
         log_warn "Flatpak not available, skipping Flatpak packages"
     fi
