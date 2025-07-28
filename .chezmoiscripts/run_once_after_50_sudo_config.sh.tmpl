@@ -7,6 +7,8 @@ set -euo pipefail
 
 # Source utility functions
 source "{{ .chezmoi.cacheDir}}/scripts/lib/chezmoi_utils.sh"
+echo "WorkingTree: {{ .chezmoi.workingTree }}"
+echo "SourceDir: {{ .chezmoi.sourceDir }}"
 
 readonly SUDOERS_FILE="/etc/sudoers.d/sudo-group"
 readonly SUDOERS_CONTENT="%wheel  ALL=(ALL)       NOPASSWD: ALL"
