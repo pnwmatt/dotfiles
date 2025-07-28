@@ -2,16 +2,25 @@
 
 My personal dotfiles managed using [chezmoi](https://github.com/twpayne/chezmoi)
 
-## 🚀 Getting started (Bluefin)
+## 🚀 Quick install:
 
-1. Install chezmoi `brew install chezmoi`
+```sh
+# Install ssh keys
+curl "https://github.com/pnwmatt.keys" | head > ~/.ssh/pnwmatt.pub
 
-2. Deploy ed25519 SSH key on `~/.ssh/id_ed25519`
+if [[ "ssh-ed25519 AxAAAC3NzaC1lZDI1NTE5AAAAINjuR4pEtP3LKV6ERcZWeyRMFAT+ehlrt0cmlWq1cPbI" == "`cat ~/ssh/pnwmatt.pub`" ]]
+then echo "Keys are still aligned.";
+else echo "! GH Account and dotenv KEYS ARE DIFFERENT !"; echo "Press ctlr-c to abort."; read;
+fi
 
-3. Deploy chezmoi age key on `~/.config/sops/age/chezmoi.txt`
-
-4. Apply dotfiles `chezmoi init --apply --ssh auricom`
+brew install chezmoi
+chezmoi init --apply --ssh pnwmatt
+```
 
 ## 📄 License
 
-[Unlicence](https://github.com/auricom/dotfiles/blob/main/LICENSE)
+[Unlicence](https://github.com/pnwmatt/dotfiles/blob/main/LICENSE)
+
+## Thanks
+
+Based on [auricom/dotfiles](https://github.com/auricom/dotfiles).  Thank you for sharing your work!
