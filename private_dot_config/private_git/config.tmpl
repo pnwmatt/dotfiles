@@ -74,7 +74,7 @@
     required = true
     smudge = "git-lfs smudge -- %f"
 
-{{ if .desktop -}}
+{{ if .workstation -}}
 [gpg]
     format = "ssh"
 {{ end -}}
@@ -119,15 +119,8 @@
 [tag]
     sort = "version:refname"
 
-{{ if .desktop -}}
+{{ if .workstation -}}
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
 
-[url "git@gitlab.com:"]
-    insteadOf = "https://gitlab.com/"
-
-[user]
-    email = "27022259+auricom@users.noreply.github.com"
-    name = "auricom"
-    signingkey = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519"
 {{ end -}}
