@@ -5,7 +5,7 @@
 {{- $workstation := false -}}{{/* true if this machine is a desktop/workstation */}}
 {{- $headless := false -}}
 
-{{- if haskey . "workstation" -}}
+{{- if hasKey . "workstation" -}}
 {{-   $workstation = .workstation -}}
 {{- else if $interactive -}}
 {{-   $workstation = promptbool "workstation" -}}
