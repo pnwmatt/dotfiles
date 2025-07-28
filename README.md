@@ -8,7 +8,7 @@ My personal dotfiles managed using [chezmoi](https://github.com/twpayne/chezmoi)
 # Install ssh keys
 curl "https://github.com/pnwmatt.keys" | head > ~/.ssh/pnwmatt.pub
 
-if [[ "ssh-ed25519 AxAAAC3NzaC1lZDI1NTE5AAAAINjuR4pEtP3LKV6ERcZWeyRMFAT+ehlrt0cmlWq1cPbI" == "`cat ~/ssh/pnwmatt.pub`" ]]
+if [[ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjuR4pEtP3LKV6ERcZWeyRMFAT+ehlrt0cmlWq1cPbI" == "`cat ~/.ssh/pnwmatt.pub`" ]]
 then echo "Keys are still aligned.";
 else echo "! GH Account and dotenv KEYS ARE DIFFERENT !"; echo "Press ctlr-c to abort."; read;
 fi
