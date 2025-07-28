@@ -1,42 +1,16 @@
-appimages:
-  - comictagger
-  - k8slens
-  - ledger-live
-  - lmstudio
+
 packages:
   taps:
+  npm:
+    - bun
   brew:
-    - atuin
-    - chezmoi
-    - dysk
-    - mise
-    - nmap
-    - thefuck
+    - neovim
+    - tldr
+    - v
     - uutils-coreutils
     - uutils-diffutils
     - uutils-findutils
+    - bun
   flatpak:
     # apps
-    - app.zen_browser.zen
-    - com.calibre_ebook.calibre
-    - com.github.rafostar.Clapper
-    - com.github.PintaProject.Pinta
-    - com.logseq.Logseq
-    - com.slack.Slack
-    - dev.vencord.Vesktop
-    - fr.handbrake.ghb
-    - info.portfolio_performance.PortfolioPerformance
-    - io.github.quodlibet.QuodLibet
-    - io.kopia.KopiaUI
-    - me.timschneeberger.GalaxyBudsClient
-    - net.cozic.joplin_desktop
-    - org.bunkus.mkvtoolnix-gui
-    - org.chromium.Chromium
-    - org.musicbrainz.Picard
-    # games
-    - org.freedesktop.Platform.VulkanLayer.gamescope//23.08
-    - org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
-    - com.github.Matoking.protontricks
-    - com.valvesoftware.Steam
-  flatpak_streamdeck:
-    - com.core447.StreamController
+    - org.mozilla.firefox

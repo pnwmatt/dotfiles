@@ -2,21 +2,31 @@
 {{- $interactive := stdinIsATTY -}}
 
 {{- /* Template file for chezmoi config file */ -}}
-{{- $desktop := false -}}{{/* true if this machine is a desktop */}}
+{{- $workstation := false -}}{{/* true if this machine is a desktop/workstation */}}
+{{- $headless := false -}}
 
-{{- if hasKey . "desktop" -}}
-{{-   $desktop = .desktop -}}
+{{- if haskey . "workstation" -}}
+{{-   $workstation = .workstation -}}
 {{- else if $interactive -}}
-{{-   $desktop = promptBool "desktop" -}}
+{{-   $workstation = promptbool "workstation" -}}
 {{- end -}}
 
-{{- if $interactive -}}
-{{-   writeToStdout "💡 Tip: you can re-enter your data with `chezmoi init --data=false`.\n" -}}
+{{- if hasKey . "workstation" -}}
+{{-   if haskey . "headless" -}}
+{{-     $headless = .headless -}}
+{{-   else if $interactive -}}
+{{-     $headless = promptbool "headless" -}}
+{{-   end -}}
 {{- end -}}
+
+{{- if false -}}
 encryption = "age"
 [age]
   identity = "{{ .chezmoi.homeDir }}/.config/sops/age/chezmoi.txt"
   recipient = "age19kk2hhldesux98t50r9wmdhdvj7xw29205gy58tj70m53p5dweksv70uh9"
-
+{{- else -}}
+{{-   writeToStdout "Encryption in chezmoi is currently disabled!"
+{{- end -}}
 [data]
-  desktop = {{ $desktop }}
+  workstation = {{ $workstation }}
+  headless = {{ $headless }}

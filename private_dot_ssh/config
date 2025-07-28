@@ -1,16 +1,21 @@
 LogLevel ERROR
 
 Host *
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519
-  IdentityFile ~/.ssh/id_rsa
+  StrictHostKeyChecking yes
 
-Host 192.168.*.*
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-Host 172.16.*.*
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-Host 10.*.*.*
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
+Host nuc1
+  HostName nuc1
+  User matt
+
+Host nuc2
+  HostName nuc2
+  User matt
+
+Host nuc3
+  HostName nuc3
+  User matt
+
+Host framework
+  HostName framework
+  User matt
+  

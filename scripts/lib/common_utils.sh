@@ -1,6 +1,11 @@
 #!/bin/bash
 
+# https://explainshell.com/explain?cmd=set+-euo+pipefail
+set -euo pipefail
+
 source "${HOME}/scripts/lib/pushover.sh"
+
+
 
 # Function to handle errors
 error_handler() {
