@@ -8,7 +8,7 @@
 set -euo pipefail
 
 # Source utility functions
-source "{{ .chezmoi.homeDir }}/scripts/lib/chezmoi_utils.sh"
+source "{{ .chezmoi.cacheDir }}/scripts/lib/chezmoi_utils.sh"
 
 main() {
     log_section "Installing Brew & Flatpak packages"
