@@ -6,6 +6,8 @@ My personal dotfiles managed using [chezmoi](https://github.com/twpayne/chezmoi)
 
 ```sh
 # Install ssh keys
+
+mkdir ~/.ssh
 curl "https://github.com/pnwmatt.keys" | head > ~/.ssh/pnwmatt.pub
 
 if [[ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjuR4pEtP3LKV6ERcZWeyRMFAT+ehlrt0cmlWq1cPbI" == "`cat ~/.ssh/pnwmatt.pub`" ]]

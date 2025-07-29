@@ -1,5 +1,6 @@
 {{- if .workstation -}}
 #!/usr/bin/env bash
+chmod 600 ~/.ssh/pnwmatt.pub
 [ ! -d ~/scripts ] && mkdir ~/scripts
 [ ! -d ~/workspace ] && mkdir ~/workspace
 exit 0

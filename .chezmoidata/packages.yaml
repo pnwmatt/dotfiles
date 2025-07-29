@@ -1,10 +1,9 @@
 
 packages:
   taps:
-  npm:
-    - bun
   brew:
     - neovim
+    - ripgrep
     - tldr
     - v
     - uutils-coreutils
