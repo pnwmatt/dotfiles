@@ -9,7 +9,7 @@ packages:
     - uutils-coreutils
     - uutils-diffutils
     - uutils-findutils
-    - bun
+    - oven-sh/bun/bun
   flatpak:
     # apps
     - org.mozilla.firefox
