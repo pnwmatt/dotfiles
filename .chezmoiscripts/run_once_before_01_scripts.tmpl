@@ -1,5 +1,5 @@
 {{- if .workstation -}}
 #!/usr/bin/env bash
-cp -R scripts ~/.
-mkdir ~/workspace || false
+[ ! -d ~/scripts ] && mkdir ~/scripts
+[ ! -d ~/workspace ] && mkdir ~/workspace
 {{- end -}}
