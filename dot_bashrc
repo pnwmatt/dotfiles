@@ -29,3 +29,6 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
+
+# Auto-Warpify
+[[ "$-" == *i* ]] && printf ''
