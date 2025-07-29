@@ -1,6 +1,7 @@
 
 packages:
   taps:
+    - oven-sh/bun
   brew:
     - neovim
     - ripgrep
