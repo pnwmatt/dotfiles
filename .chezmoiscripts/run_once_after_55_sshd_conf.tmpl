@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# SSHD configuration script
+# Configures SSHD permissions
+# Hash dependencies: {{ include "private_dot_config/private_systemConfigs/sshd.conf" | sha256sum }}
+set -euo pipefail
+
+source "{{ .chezmoi.homeDir}}/scripts/lib/chezmoi_utils.sh"
+
+readonly SERVICE="sshd"
+readonly SOURCE="{{ .chezmoi.homeDir }}/.config/systemConfigs/sshd.conf"
+readonly DESTINATION="/etc/ssh/sshd_config.d/100-pnwmatt.conf"
+
+main() {
+    log_section "Configuring $SERVICE permissions"
+
+    sudo cp "$SOURCE" "$DESTINATION"
+    sudo chmod 600 "$DESTINATION"
+    log_info "$SERVICE configuration completed"
+}
+
+# Run main function
+main "$@"
