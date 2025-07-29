@@ -5,6 +5,7 @@ packages:
   brew:
     - node
     - flyctl
+    - go
     - pnpm
     - neovim
     - ripgrep
