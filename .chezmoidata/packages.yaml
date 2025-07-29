@@ -3,6 +3,7 @@ packages:
   taps:
     - oven-sh/bun
   brew:
+    - pnpm
     - neovim
     - ripgrep
     - tldr
