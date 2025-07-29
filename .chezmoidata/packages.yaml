@@ -4,6 +4,7 @@ packages:
     - oven-sh/bun
   brew:
     - node
+    - flyctl
     - pnpm
     - neovim
     - ripgrep
