@@ -1,0 +1,13 @@
+[user]
+        email = 180812017+pnwmatt@users.noreply.github.com
+	name = pnwmatt
+        signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjuR4pEtP3LKV6ERcZWeyRMFAT+ehlrt0cmlWq1cPbI 180812017+pnwmatt@users.noreply.github.com
+[commit]
+        gpgsign = true
+[gpg]
+        format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /var/home/matt/.config/git/allowed_signers
+[init]
+	defaultBranch = main
+
