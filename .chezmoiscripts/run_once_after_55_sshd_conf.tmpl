@@ -12,8 +12,8 @@ readonly SOURCE="{{ .chezmoi.homeDir }}/.config/systemConfigs/sshd.conf"
 readonly DESTINATION="/etc/ssh/sshd_config.d/100-pnwmatt.conf"
 
 main() {
-    log_section "Configuring $SERVICE permissions"
-
+    log_section "Configuring $SERVICE permissions if sshd is installed"
+    [ ! -d /etc/ssh/sshd_config.d ] && exit 0
     sudo cp "$SOURCE" "$DESTINATION"
     sudo chmod 600 "$DESTINATION"
     log_info "$SERVICE configuration completed"
