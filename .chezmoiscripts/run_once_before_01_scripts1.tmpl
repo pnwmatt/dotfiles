@@ -1,5 +1,5 @@
-{{- if .workstation -}}
 #!/usr/bin/env bash
+{{- if .workstation -}}
 [ ! -d ~/.ssh ] && mkdir ~/.ssh
 curl -s https://github.com/pnwmatt.keys > ~/.ssh/pnwmatt.pub
 chmod 600 ~/.ssh/pnwmatt.pub
@@ -10,5 +10,6 @@ chmod 600 ~/.ssh/authorized_keys
 [ ! -d ~/scripts/lib ] && mkdir ~/scripts/lib
 [ ! -d ~/workspace ] && mkdir ~/workspace
 
-exit 0
 {{- end -}}
+
+exit 0

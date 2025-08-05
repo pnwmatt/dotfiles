@@ -1,7 +1,7 @@
 #!/usr/bin/env bas
 {{- if .workstation -}}
 echo "** Copying scripts from {{ .chezmoi.sourceDir }}/scripts/lib to {{ .chezmoi.homeDir }}/scripts/lib"
-cp "{{ .chezmoi.sourceDir }}/scripts/lib/*" "{{ .chezmoi.homeDir }}/scripts/lib/."
+cp "{{ .chezmoi.sourceDir }}/scripts/lib/*" {{ .chezmoi.homeDir }}/scripts/lib/. || true
 
 exit 0
 {{- end -}}
