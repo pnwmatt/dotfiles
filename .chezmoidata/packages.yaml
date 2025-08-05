@@ -4,8 +4,8 @@ packages:
     - oven-sh/bun
   brew:
     - node
-    - flyctl
-    - go
+    #- flyctl
+    #- go
     - pnpm
     - neovim
     - ripgrep
@@ -14,7 +14,7 @@ packages:
     - uutils-coreutils
     - uutils-diffutils
     - uutils-findutils
-    - oven-sh/bun/bun
+    #- oven-sh/bun/bun
   flatpak:
     # apps
     - org.mozilla.firefox
