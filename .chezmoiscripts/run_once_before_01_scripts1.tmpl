@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 {{- if .workstation -}}
+
 [ ! -d ~/.ssh ] && mkdir ~/.ssh
+
 curl -s https://github.com/pnwmatt.keys > ~/.ssh/pnwmatt.pub
 chmod 600 ~/.ssh/pnwmatt.pub
 echo ~/.ssh/pnwmatt.pub >> ~/.ssh/authorized_keys

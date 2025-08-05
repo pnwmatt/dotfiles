@@ -1,4 +1,5 @@
-#!/usr/bin/env bas
+#!/usr/bin/env bash
+
 {{- if .workstation -}}
 echo "** Copying scripts from {{ .chezmoi.sourceDir }}/scripts/lib to {{ .chezmoi.homeDir }}/scripts/lib"
 cp "{{ .chezmoi.sourceDir }}/scripts/lib/*" {{ .chezmoi.homeDir }}/scripts/lib/. || true
