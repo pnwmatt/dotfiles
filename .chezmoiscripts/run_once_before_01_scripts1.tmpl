@@ -4,16 +4,16 @@
 
 
 
-[ ! -d ~/.ssh ] && mkdir ~/.ssh
+[ ! -d ~/.ssh ] && mkdir ~/.ssh || true
 
 curl -s https://github.com/pnwmatt.keys > ~/.ssh/pnwmatt.pub
 chmod 600 ~/.ssh/pnwmatt.pub
-echo ~/.ssh/pnwmatt.pub >> ~/.ssh/authorized_keys
+cat ~/.ssh/pnwmatt.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 
-[ ! -d ~/scripts ] && mkdir ~/scripts
-[ ! -d ~/scripts/lib ] && mkdir ~/scripts/lib
-[ ! -d ~/workspace ] && mkdir ~/workspace
+[ ! -d ~/scripts ] && mkdir ~/scripts || true
+[ ! -d ~/scripts/lib ] && mkdir ~/scripts/lib || true
+[ ! -d ~/workspace ] && mkdir ~/workspace || true
 
 {{- end -}}
 
