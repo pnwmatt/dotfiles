@@ -30,5 +30,7 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+[ -f /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh || echo Hey!  `brew install autojump` for directory jumping.
+
 # Auto-Warpify
 [[ "$-" == *i* ]] && printf ''
