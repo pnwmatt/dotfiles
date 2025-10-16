@@ -1,0 +1,24 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+format = "$all"
+
+add_newline = true
+
+
+[git_status]
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_branch]
+symbol = ''
+
+[c]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[cmd_duration]
+min_time = 1
+format = '[$duration](bold yellow)'
