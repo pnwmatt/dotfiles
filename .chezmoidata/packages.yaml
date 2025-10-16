@@ -9,6 +9,7 @@ packages:
         - pnpm
         - neovim
         - ripgrep
+        - dnote
         - tldr
         - v
         - autojump
