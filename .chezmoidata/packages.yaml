@@ -1,20 +1,21 @@
-
 packages:
-  taps:
-    - oven-sh/bun
-  brew:
-    - node
-    #- flyctl
-    #- go
-    - pnpm
-    - neovim
-    - ripgrep
-    - tldr
-    - v
-    - uutils-coreutils
-    - uutils-diffutils
-    - uutils-findutils
-    #- oven-sh/bun/bun
-  flatpak:
-    # apps
-    - org.mozilla.firefox
+    taps:
+        - oven-sh/bun
+        - tekwizely/tap
+    brew:
+        - node
+        #- flyctl
+        #- go
+        - pnpm
+        - neovim
+        - ripgrep
+        - tldr
+        - v
+        - autojump
+        - uutils-coreutils
+        - uutils-diffutils
+        - uutils-findutils
+        - bingo
+    flatpak:
+        # apps
+        - org.mozilla.firefox
