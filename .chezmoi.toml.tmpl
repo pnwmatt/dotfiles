@@ -30,3 +30,16 @@ encryption = "age"
 [data]
   workstation = {{ $workstation }}
   headless = {{ $headless }}
+[data.sqlrsync]
+  enabled = true
+  install_method = "github"
+  version = "0.0.6"
+  install_dir = "/usr/local/bin"
+[[data.sqlrsync.databases]]
+  name = "dnote"
+  remote = "mchomelab/dnote/dnote.db"
+  local_path = "~/.local/share/dnote/dnote.db"
+  sync_mode = "subscribe"
+  enabled = true
+  subscribe_flags = "--waitIdle=10"
+  pull_schedule = ""
