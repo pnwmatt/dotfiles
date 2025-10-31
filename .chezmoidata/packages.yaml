@@ -1,6 +1,5 @@
 packages:
     taps:
-        - oven-sh/bun
         - tekwizely/tap
     brew:
         - node
