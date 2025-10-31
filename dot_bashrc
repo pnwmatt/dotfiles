@@ -13,7 +13,7 @@ export EDITOR="vi"
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH:/home/linuxbrew/.linuxbrew/bin/brew:$HOME/go/bin"
 fi
 export PATH
 
