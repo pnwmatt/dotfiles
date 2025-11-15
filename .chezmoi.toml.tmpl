@@ -40,17 +40,15 @@ encryption = "age"
   headless = {{ $headless }}
   private_server = {{ $private_server }}
 
-
 {{- writeToStdout "Installing SQLRsync v0.0.9\n" -}}
 [data.sqlrsync]
   enabled = true
   install_method = "github"
   version = "0.0.9"
   install_dir = "/usr/local/bin"
-
 {{- writeToStdout " - Done\n" -}}
 
-{{- if eq .chezmoi.hostname "nuc3" }}
+{{- if eq .chezmoi.hostname "nuc3" -}}
 {{-   writeToStdout "Configuring sqlrsync for earthquakes.db\n" -}}
 [[data.sqlrsync.databases]]
   name = "gov.usgs.earthquakes"
@@ -60,9 +58,9 @@ encryption = "age"
   enabled = true
   subscribe_flags = "--waitIdle=10s"
 {{-   writeToStdout " - Done\n" -}}
-{{- end }}
+{{- end -}}
 
-{{- if $private_server }}
+{{- if $private_server -}}
 {{-   writeToStdout "Configuring sqlrsync for dnote.db\n" -}}
 [[data.sqlrsync.databases]]
   name = "dnote"
@@ -72,4 +70,4 @@ encryption = "age"
   enabled = true
   subscribe_flags = "--waitIdle=10s"
 {{-   writeToStdout " - Done\n" -}}
-{{- end }}
+{{- end -}}
