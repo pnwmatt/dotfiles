@@ -40,23 +40,18 @@ encryption = "age"
   headless = {{ $headless }}
   private_server = {{ $private_server }}
 
+
+{{- writeToStdout "Installing SQLRsync v0.0.9" -}}
 [data.sqlrsync]
   enabled = true
   install_method = "github"
   version = "0.0.9"
   install_dir = "/usr/local/bin"
 
-{{- if $private_server }}
-[[data.sqlrsync.databases]]
-  name = "dnote"
-  remote = "mchomelab/dnote/dnote.db"
-  local_path = "~/.local/share/dnote/dnote.db"
-  sync_mode = "subscribe"
-  enabled = true
-  subscribe_flags = "--waitIdle=10s"
-{{- end }}
+{{- writeToStdout " - Done" -}}
 
 {{- if eq .chezmoi.hostname "nuc3" }}
+{{-   writeToStdout "Configuring sqlrsync for earthquakes.db" -}}
 [[data.sqlrsync.databases]]
   name = "gov.usgs.earthquakes"
   remote = "usgs.gov/earthquakes.db"
@@ -64,4 +59,17 @@ encryption = "age"
   sync_mode = "subscribe"
   enabled = true
   subscribe_flags = "--waitIdle=10s"
+{{-   writeToStdout " - Done" -}}
+{{- end }}
+
+{{- if $private_server }}
+{{-   writeToStdout "Configuring sqlrsync for dnote.db" -}}
+[[data.sqlrsync.databases]]
+  name = "dnote"
+  remote = "mchomelab/dnote/dnote.db"
+  local_path = "~/.local/share/dnote/dnote.db"
+  sync_mode = "subscribe"
+  enabled = true
+  subscribe_flags = "--waitIdle=10s"
+{{-   writeToStdout " - Done" -}}
 {{- end }}
