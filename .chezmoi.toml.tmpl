@@ -32,7 +32,7 @@ encryption = "age"
   identity = "{{ .chezmoi.homeDir }}/.config/sops/age/chezmoi.txt"
   recipient = "age19kk2hhldesux98t50r9wmdhdvj7xw29205gy58tj70m53p5dweksv70uh9"
 {{- else -}}
-{{-   writeToStdout "Encryption in chezmoi is currently disabled!" -}}
+{{-   writeToStdout "Encryption in chezmoi is currently disabled!\n" -}}
 {{- end -}}
 
 [data]
@@ -41,17 +41,17 @@ encryption = "age"
   private_server = {{ $private_server }}
 
 
-{{- writeToStdout "Installing SQLRsync v0.0.9" -}}
+{{- writeToStdout "Installing SQLRsync v0.0.9\b" -}}
 [data.sqlrsync]
   enabled = true
   install_method = "github"
   version = "0.0.9"
   install_dir = "/usr/local/bin"
 
-{{- writeToStdout " - Done" -}}
+{{- writeToStdout " - Done\n" -}}
 
 {{- if eq .chezmoi.hostname "nuc3" }}
-{{-   writeToStdout "Configuring sqlrsync for earthquakes.db" -}}
+{{-   writeToStdout "Configuring sqlrsync for earthquakes.db\n" -}}
 [[data.sqlrsync.databases]]
   name = "gov.usgs.earthquakes"
   remote = "usgs.gov/earthquakes.db"
@@ -59,11 +59,11 @@ encryption = "age"
   sync_mode = "subscribe"
   enabled = true
   subscribe_flags = "--waitIdle=10s"
-{{-   writeToStdout " - Done" -}}
+{{-   writeToStdout " - Done\n" -}}
 {{- end }}
 
 {{- if $private_server }}
-{{-   writeToStdout "Configuring sqlrsync for dnote.db" -}}
+{{-   writeToStdout "Configuring sqlrsync for dnote.db\n" -}}
 [[data.sqlrsync.databases]]
   name = "dnote"
   remote = "mchomelab/dnote/dnote.db"
@@ -71,5 +71,5 @@ encryption = "age"
   sync_mode = "subscribe"
   enabled = true
   subscribe_flags = "--waitIdle=10s"
-{{-   writeToStdout " - Done" -}}
+{{-   writeToStdout " - Done\n" -}}
 {{- end }}
