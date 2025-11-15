@@ -13,4 +13,4 @@ workspace/*
 .vim/spell/*
 .bash.d/local/*
 !.bash.d/local/README.md
-
+tmp/
