@@ -4,6 +4,7 @@
 {{- /* Template file for chezmoi config file */ -}}
 {{- $workstation := false -}}{{/* true if this machine is a desktop/workstation */}}
 {{- $headless := false -}}
+{{- $private_server := false -}}{{/* true if this is a private server (for services like dnote) */}}
 
 {{- if hasKey . "workstation" -}}
 {{-   $workstation = .workstation -}}
@@ -19,6 +20,12 @@
 {{-   end -}}
 {{- end -}}
 
+{{- if hasKey . "private_server" -}}
+{{-   $private_server = .private_server -}}
+{{- else if $interactive -}}
+{{-   $private_server = promptBool "private_server (for services like dnote that should only run on trusted servers)" -}}
+{{- end -}}
+
 {{- if false -}}
 encryption = "age"
 [age]
@@ -27,14 +34,19 @@ encryption = "age"
 {{- else -}}
 {{-   writeToStdout "Encryption in chezmoi is currently disabled!" -}}
 {{- end -}}
+
 [data]
   workstation = {{ $workstation }}
   headless = {{ $headless }}
+  private_server = {{ $private_server }}
+
 [data.sqlrsync]
   enabled = true
   install_method = "github"
-  version = "0.0.6"
+  version = "0.0.9"
   install_dir = "/usr/local/bin"
+
+{{- if $private_server }}
 [[data.sqlrsync.databases]]
   name = "dnote"
   remote = "mchomelab/dnote/dnote.db"
@@ -42,3 +54,14 @@ encryption = "age"
   sync_mode = "subscribe"
   enabled = true
   subscribe_flags = "--waitIdle=10s"
+{{- end }}
+
+{{- if eq .chezmoi.hostname "nuc3" }}
+[[data.sqlrsync.databases]]
+  name = "gov.usgs.earthquakes"
+  remote = "usgs.gov/earthquakes.db"
+  local_path = "~/workspace/sqlrsync-client/examples/earthquakes/earthquakes.db"
+  sync_mode = "subscribe"
+  enabled = true
+  subscribe_flags = "--waitIdle=10s"
+{{- end }}

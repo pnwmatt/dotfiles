@@ -1,0 +1,14 @@
+{{- if eq .chezmoi.hostname "nuc3" -}}
+[Unit]
+Description=USGS Earthquakes SQLRsync Service
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/workspace/sqlrsync-client/examples/earthquakes
+ExecStart=%h/workspace/sqlrsync-client/examples/earthquakes/gov.usgs.earthquakes.sh
+Restart=no
+
+[Install]
+WantedBy=default.target
+{{- end -}}
